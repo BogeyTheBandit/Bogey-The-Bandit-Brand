@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOGEY the Bandit - Meme Coin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* General Page Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #0A0A0A, #1A1A1A);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        section {
+            padding: 60px 10%;
+            max-width: 800px;
+            margin: auto;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #1A1A1A;
+            padding: 30px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .main-logo {
+            display: block;
+            margin: 20px auto;
+            width: 300px;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 36px;
+            background: linear-gradient(90deg, #FFD700, #8B7500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 18px;
+            color: #D3D3D3;
+        }
+
+        button {
+            background: linear-gradient(45deg, #FFD700, #8B7500);
+            color: black;
+            padding: 14px 28px;
+            border: 2px solid #FFD700;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.5);
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #8B7500, #FFD700);
+            color: white;
+            box-shadow: 0px 0px 20px rgba(255, 215, 0, 1);
+        }
+
+        #tokenomics {
+            text-align: center;
+        }
+
+        #tokenomics canvas {
+            display: block;
+            margin: 20px auto;
+            width: 600px !important; /* Wider chart */
+            max-width: 90%;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .floating-buy {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #FFD700, #8B7500);
+            color: black;
+            padding: 12px 20px;
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .floating-buy:hover {
+            background: linear-gradient(45deg, #8B7500, #FFD700);
+            color: white;
+            box-shadow: 0px 0px 20px rgba(255, 215, 0, 1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="Bogey The Bandit label.png" alt="Bogey The Bandit" class="main-logo">
+        <h1>BOGEY THE BANDIT 🦝🔥</h1>
+<h2 style="color: #FFD700; font-size: 28px; margin-top: 10px;">
+    🎵 The First Meme Coin on Spotify, Apple Music, YouTube Music & Amazon Music! 
+    <img src="spotify-logo.png" alt="Spotify" style="height: 28px; vertical-align: middle; margin-left: 10px;">
+</h2>
+
+        <p>The only raccoon dropping bars AND pumping charts.</p>
+<p><strong>💎 Bogey the Bandit loves wearing hard bling and spitting hard bars! 💎</strong></p>
+        <a href="https://dexscreener.com/" target="_blank">
+    <button id="buyNow">BUY NOW</button>
+</a>
+
+    </header>
+
+    <section id="about">
+
+    <p>BOGEY the Bandit isn’t just another meme coin—he’s a <strong>legendary underground raccoon rapper</strong> breaking into <strong>crypto, music, fashion, and entertainment</strong> all at once.</p>
+    <p>From <strong>spitting bars to dropping NFTs</strong>, BOGEY is here to <strong>dominate the scene</strong>—blending <strong>blockchain, hip-hop culture, and brand-building</strong> like never before.</p>
+    
+    <h3>Why BOGEY Stands Out</h3>
+    <ul>
+        <li><strong>💽 Music First:</strong> The <strong>only</strong> meme coin with full music albums on major streaming platforms.</li>
+
+<img src="bogey-rapping.png" alt="Bogey Rapping" style="display: block; margin: 20px auto; width: 80%; max-width: 500px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);">
+
+<!-- Music Player -->
+<div style="text-align: center; margin-top: 20px;">
+    <h3>🎵 Listen to BOGEY</h3>
+    <p>Check out some of the hottest tracks straight from the underground!</p>
+    <div>
+
+    <p><strong>🔥 Late Night Drive</strong></p>
+    <audio controls>
+        <source src="late-night-drive.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <p><strong>💰 No Handouts</strong></p>
+    <audio controls>
+        <source src="no-handouts.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <p><strong>🛑 No Strings</strong></p>
+    <audio controls>
+        <source src="no-strings.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <p><strong>🚀 Built Different</strong></p>
+    <audio controls>
+        <source src="built-different.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+        <p><strong>🔥 Apply Pressure</strong></p>
+        <audio controls>
+            <source src="apply-pressure.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+    <div>
+        <p><strong>🚀 Can’t Catch Me</strong></p>
+        <audio controls>
+            <source src="cant-catch-me.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+    <div>
+        <p><strong>🏆 Out the Gutter</strong></p>
+        <audio controls>
+            <source src="_out-the-gutter.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+</div>
+
+        <li><strong>💎 NFTs & Merch:</strong> Own <strong>exclusive BOGEY NFTs</strong> & high-quality streetwear.</li>
+<img src="bogey-nfts.png" alt="Bogey NFT Collection" style="display: block; margin: 20px auto; width: 80%; max-width: 500px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);">
+
+        <li><strong>🧠 AI-Powered Chatbot:</strong> Chat with BOGEY in real time.</li>
+        <li><strong>📺 BOGEY Cartoon:</strong> An <strong>animated series</strong> in development.</li>
+        <li><strong>🤝 Big Partnerships & Brand Deals:</strong> Expanding into <strong>mainstream entertainment, streetwear, and Web3.</strong></li>
+    </ul>
+    
+    <h3>BOGEY is More Than a Meme—It’s a Brand</h3>
+    <p style="font-size: 22px; font-weight: bold; color: #FFD700; text-align: center; margin-top: 20px;">
+    With <strong>BOGEY the Bandit</strong>, you're not just investing in a token—<br> 
+    <strong>YOU'RE INVESTING IN A BRAND.</strong>
+</p>
+
+    <ul>
+        <li>🎶 <strong>Music albums</strong> on <strong>Spotify, Apple Music, and Amazon Music.</strong></li>
+        <li>🛍️ <strong>Exclusive merch</strong> featuring <strong>premium streetwear and collectibles.</strong></li>
+        <li>🧸 <strong>BOGEY the Bandit toys</strong>—from plushies to action figures.</li>
+        <li>📺 <strong>An animated BOGEY the Bandit cartoon.</strong></li>
+    </ul>
+    <p>BOGEY isn’t just <strong>a crypto project</strong>—he’s the <strong>next cultural icon.</strong></p>
+    <strong>🚀 Get in early. Be part of the movement!</strong>
+</section>
+
+    <section id="roadmap">
+    <h2>🚀 BOGEY'S MASTER PLAN</h2>
+    <p>From underground battles to global dominance—here’s what’s next:</p>
+    <ul>
+        <li><strong>🎤 Phase 1:</strong> Launch Website, Gain First 1,000 Holders, & Go Viral with Memes.</li>
+        <li><strong>🎨 Phase 2:</strong> Drop Exclusive BOGEY NFTs & Expand the Brand.</li>
+        <li><strong>🎶 Phase 3:</strong> Release the FIRST EVER Meme Coin Music Album on <strong>Spotify, Apple Music, and Amazon Music.</strong></li>
+<img src="bogey-live-performance.png" alt="Bogey Performing on Stage" style="display: block; margin: 20px auto; width: 80%; max-width: 600px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);">
+
+        <li><strong>📺 Phase 4:</strong> Premiere <strong>BOGEY’s Animated Music Video</strong> on YouTube.</li>
+<img src="bogey-rap-video.png" alt="Bogey Recording His First Rap Video" style="display: block; margin: 20px auto; width: 80%; max-width: 600px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);">
+
+        <li><strong>🤝 Phase 5:</strong> **Secure a major brand deal with Walmart** for the first-ever **BOGEY toy collection.**</li>
+        <li><strong>🔥 Phase 6:</strong> Launch **exclusive BOGEY streetwear & collectibles.**</li>
+        <li><strong>💰 Phase 7:</strong> Secure **Major Exchange Listings & Game-Changing Partnerships.**</li>
+        <li><strong>🏆 Phase 8:</strong> Expand into **esports, rap battle collaborations, and Web3 entertainment.**</li>
+        <li><strong>📺 Phase 9:</strong> **Develop and launch the full BOGEY the Bandit Animated Cartoon.**</li>
+    </ul>
+    <p>🚀 **This isn’t just a coin—it’s a movement.** The rap game’s first crypto icon is just getting started.</p>
+</section>
+
+
+    <section id="tokenomics">
+        <h2>Tokenomics</h2>
+        <canvas id="allocationChart" width="400" height="400"></canvas>
+    </section>
+
+    <a href="https://dexscreener.com/" target="_blank" class="floating-buy">🛒 Buy BOGEY Now</a>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const ctx = document.getElementById("allocationChart").getContext("2d");
+            new Chart(ctx, {
+                type: "doughnut",
+                data: {
+                    labels: ["Liquidity - 40%", "Marketing - 20%", "Community Rewards - 15%", "NFT & Music Fund - 10%", "Development - 10%", "Reserves - 5%"],
+                    datasets: [{
+                        label: "Token Allocation",
+                        data: [40, 20, 15, 10, 10, 5],
+                        backgroundColor: ["#FFD700", "#8B7500", "#6A0DAD", "#9400D3", "#D3D3D3", "#808080"],
+                        borderColor: "#000",
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            labels: {
+                                color: "white",
+                                font: {
+                                    size: 16,
+                                    weight: "bold"
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
