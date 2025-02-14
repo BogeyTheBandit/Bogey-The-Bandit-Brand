@@ -123,6 +123,13 @@
     <header>
         <img src="Bogey The Bandit label.png" alt="Bogey The Bandit" class="main-logo">
         <h1>BOGEY THE BANDIT 🦝🔥</h1>
+
+<!-- Countdown Timer -->
+<div id="countdown-container">
+    <h2>🚀 BOGEY LAUNCH COUNTDOWN</h2>
+    <p id="countdown" class="countdown-timer">Loading...</p>
+</div>
+
 <h2 style="color: #FFD700; font-size: 28px; margin-top: 10px;">
     🎵 The First Meme Coin on Spotify, Apple Music, YouTube Music & Amazon Music! 
     <img src="spotify-logo.png" alt="Spotify" style="height: 28px; vertical-align: middle; margin-left: 10px;">
@@ -150,12 +157,6 @@
     <h3>🎵 Listen to BOGEY</h3>
     <p>Check out some of the hottest tracks straight from the underground!</p>
     <div>
-
-    <p><strong>🔗 Off The Chain</strong></p>
-<audio controls>
-    <source src="off-the-chain.mp3" type="audio/mpeg">
-    Your browser does not support the audio tag.
-</audio>
 
     <p><strong>🔥 Late Night Drive</strong></p>
     <audio controls>
@@ -295,3 +296,29 @@
     </script>
 </body>
 </html>
+
+<script>
+    // Set the launch date: February 16, 2024, at 6:00 PM CST (Converted to UTC: Feb 17, 2024, 12:00 AM)
+    const launchDate = new Date(Date.UTC(2024, 1, 17, 0, 0, 0)).getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const timeLeft = launchDate - now;
+
+        if (timeLeft <= 0) {
+            document.getElementById("countdown").innerHTML = "🚀 WE ARE LIVE!";
+            return;
+        }
+
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call to avoid 1s delay
+</script>
