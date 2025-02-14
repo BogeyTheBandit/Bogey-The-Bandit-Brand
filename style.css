@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOGEY the Bandit - Meme Coin</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* General Page Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #0D0D0D, #1A1A1A);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #1A1A1A;
+            padding: 30px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            background: linear-gradient(90deg, #FFD700, #8B7500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 18px;
+            color: #D3D3D3;
+        }
+
+        /* Button Styles */
+        button {
+            background: linear-gradient(45deg, #FFD700, #8B7500);
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #8B7500, #FFD700);
+        }
+
+        /* Sections */
+        section {
+            padding: 20px;
+            width: 80%;
+            text-align: center;
+        }
+
+        #tokenomics, #roadmap {
+            background-color: #2D1B3D;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            color: #FFFFFF;
+        }
+
+       #community {
+    background: linear-gradient(90deg, #8B7500, #FFD700); /* Darker Gold Gradient */
+    color: white; /* Change text to white for better contrast */
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds shadow for better readability */
+}
+
+
+        #allocationChart {
+            margin-top: 20px;
+            max-width: 80%;
+            background-color: #2D1B3D;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        a {
+            color: #D3D3D3;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header>
+        <h1>BOGEY THE BANDIT 🦝🔥</h1>
+        <p>The only raccoon dropping bars AND pumping charts.</p>
+        <button id="buyNow">BUY NOW</button>
+    </header>
+
+    <!-- Tokenomics Section -->
+    <section id="tokenomics">
+        <h2>Tokenomics</h2>
+        <p><strong>Total Supply:</strong> 420,690,000,000</p>
+        <p><strong>Buy/Sell Tax:</strong> Low</p>
+        <p><strong>Liquidity Locked:</strong> Yes</p>
+        <canvas id="allocationChart" width="400" height="400"></canvas>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap">
+        <h2>Roadmap</h2>
+        <ul>
+            <li><strong>Phase 1:</strong> Website launch, first 1000 holders</li>
+            <li><strong>Phase 2:</strong> Drop NFTs and build the Bogey brand</li>
+            <li><strong>Phase 3:</strong> Be the first meme coin with music albums on Spotify, Apple Music, and Amazon Music</li>
+            <li><strong>Phase 4:</strong> Release Bogey's first music video</li>
+            <li><strong>Phase 5:</strong> Develop and launch Bogey's AI chatbot</li>
+            <li><strong>Phase 6:</strong> Merch drop - limited edition Bogey gear</li>
+            <li><strong>Phase 7:</strong> Begin development of the Bogey video game</li>
+            <li><strong>Phase 8:</strong> Secure brand deals and expand community-driven collaborations</li>
+        </ul>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community">
+        <h2>Join the Movement</h2>
+        <p>Follow us on <a href="#">X</a>, <a href="#">Telegram</a>, <a href="#">Discord</a></p>
+        <button id="joinCommunity">JOIN US</button>
+    </section>
+
+    <script>
+        const ctx = document.getElementById('allocationChart').getContext('2d');
+        const allocationChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Liquidity', 'Development', 'Marketing', 'Community', 'Reserves'],
+                datasets: [{
+                    label: 'Token Allocation',
+                    data: [40, 20, 15, 15, 10],
+                    backgroundColor: ['#FFD700', '#8B7500', '#6A0DAD', '#9400D3', '#D3D3D3'],
+                    borderColor: '#000',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: 'white'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+.main-logo {
+    display: block;
+    margin: 20px auto;
+    width: 250px; /* Adjust size as needed */
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+}
