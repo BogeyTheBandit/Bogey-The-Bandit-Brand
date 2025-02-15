@@ -250,57 +250,34 @@
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.3);
 }
-/* Image Carousel Styling */
-.carousel-container {
+/* Image Gallery Styling */
+.gallery-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    position: relative;
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px 0;
+    gap: 15px; /* Spacing between buttons and image */
 }
 
-.carousel {
-    display: flex;
-    gap: 20px;
-    scroll-behavior: smooth;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Hide scrollbar */
-    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
-    align-items: center;
+.gallery-container button {
+    background-color: #FFD700;
+    border: none;
+    color: black;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
 }
 
-.carousel::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari */
+.gallery-container button:hover {
+    transform: scale(1.1);
 }
 
-/* Default Image Styles */
-.carousel img {
-    width: 300px; /* Consistent width */
-    height: 300px; /* Consistent height */
-    object-fit: cover; /* Prevents image stretching */
+.gallery-img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    scroll-snap-align: center;
-    opacity: 0.6; /* Faded effect for side images */
 }
 
-/* Center Image Effect */
-.carousel img.active {
-    transform: scale(1.2); /* Enlarges center image */
-    opacity: 1; /* Fully visible */
-}
-
-/* Fading effect for side images */
-.carousel img:not(.active) {
-    transform: scale(0.9);
-    .carousel img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover; /* Ensures image fills the space */
-}
