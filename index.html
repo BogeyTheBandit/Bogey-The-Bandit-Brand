@@ -265,52 +265,17 @@
         </audio>
     </div>
 </div>
-
-<!-- Bogey Image Carousel -->
+<!-- Bogey Image Gallery Section -->
 <section id="bogey-gallery" style="text-align: center; margin: 50px auto; padding: 20px; background-color: #1a1a1a; border-radius: 10px;">
     <h2 style="color: white;">📸 Official Bogey Image Gallery</h2>
-    <p style="color: #D3D3D3;">Scroll through official Bogey images!</p>
+    <p style="color: #D3D3D3;">Click through to see official Bogey images!</p>
 
-    <div class="carousel-container">
-        <div class="carousel" id="bogeyCarousel">
-            <img src="images/handsup.jpg" class="carousel-image active" alt="Bogey Image">
-            <img src="images/concert.webp" class="carousel-image" alt="Bogey Image">
-            <img src="images/hardbattle.webp" class="carousel-image" alt="Bogey Image">
-            <img src="images/jumping-crowd.webp" class="carousel-image" alt="Bogey Image">
-            <img src="images/racks.webp" class="carousel-image" alt="Bogey Image">
-            <img src="images/redcarpet2.jpg" class="carousel-image" alt="Bogey Image">
-            <img src="images/takeover.jpg" class="carousel-image" alt="Bogey Image">
-            <img src="images/HoodLegend.webp" class="carousel-image" alt="Bogey Image">
-            <img src="images/StageBogey.webp" class="carousel-image" alt="Bogey Image">
-            <img src="images/SwoleBogey.webp" class="carousel-image" alt="Bogey Image">
-            <img src="images/WinningBogey.webp" class="carousel-image" alt="Bogey Image">
-            <img src="images/Album1.jpg" class="carousel-image" alt="Bogey Image">
-            <img src="images/award.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/Bogeywithhat.webp" class="carousel-image" alt="Bogey Image">
-            <img src="images/bogey-live-performance.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/bogey-rapping.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/bogey-rap-video.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/countingracksbogey.webp" class="carousel-image" alt="Bogey Image">
-            <img src="images/stage-performance.webp" class="carousel-image" alt="Bogey Image">
-            <img src="images/14.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/1.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/2.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/3.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/4.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/5.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/6.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/7.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/8.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/9.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/10.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/11.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/12.png" class="carousel-image" alt="Bogey Image">
-            <img src="images/13.png" class="carousel-image" alt="Bogey Image">
-        </div>
+    <div class="gallery-container">
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <img id="galleryImage" src="images/handsup.jpg" alt="Bogey Image" class="gallery-img">
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
     </div>
 </section>
-
-
 
     <section id="roadmap">
     <h2>🚀 BOGEY'S ROADMAP </h2>
