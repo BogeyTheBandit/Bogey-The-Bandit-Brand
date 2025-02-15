@@ -181,3 +181,73 @@
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
 }
+/* Image Gallery Styles */
+.gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.gallery-img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+}
+
+.prev, .next {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: #FFD700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.prev:hover, .next:hover {
+    color: #FFFFFF;
+}
+/* Ensure the gallery and roadmap sections are properly aligned */
+#bogey-gallery, #roadmap {
+    max-width: 900px; /* Ensures both sections have the same width */
+    margin: 0 auto; /* Centers both sections */
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Ensure the gallery container is centered */
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Adjust spacing between buttons and images */
+}
+
+/* Ensure the roadmap images are centered */
+#roadmap img {
+    display: block;
+    margin: 20px auto;
+    max-width: 500px; 
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+}
+/* Ensure Tokenomics section matches the width & alignment of other sections */
+#tokenomics {
+    max-width: 900px; /* Same width as Gallery & Roadmap */
+    margin: 0 auto; /* Centers the section */
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Ensure the Tokenomics chart is centered */
+#tokenomics canvas {
+    display: block;
+    margin: 20px auto;
+    max-width: 600px; /* Adjust width to balance with the other sections */
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.3);
+}
+
