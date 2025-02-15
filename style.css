@@ -250,34 +250,4 @@
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.3);
 }
-/* Image Gallery Styling */
-.gallery-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px; /* Spacing between buttons and image */
-}
-
-.gallery-container button {
-    background-color: #FFD700;
-    border: none;
-    color: black;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: transform 0.2s ease-in-out;
-}
-
-.gallery-container button:hover {
-    transform: scale(1.1);
-}
-
-.gallery-img {
-    width: 400px;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
-}
 
