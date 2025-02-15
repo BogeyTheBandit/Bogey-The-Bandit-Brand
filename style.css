@@ -250,4 +250,38 @@
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.3);
 }
+    .carousel-container {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+        width: 80%;
+        margin: auto;
+    }
+
+    .carousel {
+        display: flex;
+        gap: 20px;
+        scroll-behavior: smooth;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-image {
+        width: 300px;
+        height: auto;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        opacity: 0.6;
+    }
+
+    /* Style for the center image */
+    .carousel-image:nth-child(3n) {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    /* Fade effect for side images */
+    .carousel-image:not(:nth-child(3n)) {
+        transform: scale(0.9);
+    }
 
