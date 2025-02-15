@@ -250,7 +250,7 @@
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.3);
 }
-    /* Image Carousel Styling */
+/* Image Carousel Styling */
 .carousel-container {
     display: flex;
     justify-content: center;
@@ -271,7 +271,7 @@
     scroll-snap-type: x mandatory;
     scrollbar-width: none; /* Hide scrollbar */
     -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
-    align-items: center; /* Ensure images are aligned */
+    align-items: center;
 }
 
 .carousel::-webkit-scrollbar {
@@ -280,8 +280,8 @@
 
 /* Default Image Styles */
 .carousel img {
-    width: 300px; /* Set consistent width */
-    height: 300px; /* Set consistent height */
+    width: 300px; /* Consistent width */
+    height: 300px; /* Consistent height */
     object-fit: cover; /* Prevents image stretching */
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
@@ -290,13 +290,13 @@
     opacity: 0.6; /* Faded effect for side images */
 }
 
-/* Enlarged Center Image */
+/* Center Image Effect */
 .carousel img.active {
     transform: scale(1.2); /* Enlarges center image */
     opacity: 1; /* Fully visible */
 }
 
-/* Fade effect for side images */
+/* Fading effect for side images */
 .carousel img:not(.active) {
     transform: scale(0.9);
 }
