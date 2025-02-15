@@ -382,13 +382,12 @@
     
     <p><strong>100% of the revenue</strong> generated from <strong>music streams, merchandise sales, and brand deals</strong> will be allocated to purchasing and burning tokens from the open market. This will continue until <strong>25% of the total supply</strong> has been permanently removed, reducing circulating supply and increasing scarcity over time.</p>
     
-    <p>This **self-sustaining burn system** ensures that the success of the brand directly benefits investors, creating **long-term value** while fueling Bogey’s music, merch, and cultural impact.</p>
+    <p>This <strong>self-sustaining burn system</strong> ensures that the success of the brand directly benefits investors, creating <strong>long-term value</strong> while fueling Bogey’s music, merch, and cultural impact.</p>
 </section>
 
+<!-- Floating Buy Button -->
+<a href="https://dexscreener.com/" target="_blank" class="floating-buy">🛒 Buy BOGEY Now</a>
 
-    </section>
-
-    <a href="https://dexscreener.com/" target="_blank" class="floating-buy">🛒 Buy BOGEY Now</a>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const carousel = document.getElementById("bogeyCarousel");
@@ -403,7 +402,7 @@
                 }
             });
 
-            // Adjust the transform instead of scrolling
+            // Adjust the transform for smoother scrolling
             const offset = -(currentIndex * (images[0].offsetWidth + 20));
             carousel.style.transform = `translateX(${offset}px)`;
         }
@@ -414,37 +413,37 @@
         }
 
         setInterval(autoScroll, 3000); // Auto-scroll every 3 seconds
-        updateActiveImage(); // Call initially to set the first image as active
+        updateActiveImage(); // Set the first image as active
     });
 </script>
 
-
-    
-</body>
-</html>
-
+<!-- Countdown Timer -->
 <script>
-    // Set the launch date: February 16, 2024, at 6:00 PM CST (Converted to UTC: Feb 17, 2024, 12:00 AM UTC)
-    const launchDate = new Date("Feb 16, 2024 18:00:00 CST").getTime();
+    document.addEventListener("DOMContentLoaded", function () {
+        // Convert CST (Central Standard Time) to UTC: Feb 16, 2024, 6:00 PM CST = Feb 17, 12:00 AM UTC
+        const launchDate = new Date(Date.UTC(2024, 1, 17, 0, 0, 0)).getTime();
 
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const timeLeft = launchDate - now;
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = launchDate - now;
 
-        if (timeLeft <= 0) {
-            document.getElementById("countdown").innerHTML = "🚀 WE ARE LIVE! 🎤🔥";
-            return;
+            if (timeLeft <= 0) {
+                document.getElementById("countdown").innerHTML = "🚀 WE ARE LIVE! 🎤🔥";
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
 
-        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-        document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    // Update the countdown every second
-    setInterval(updateCountdown, 1000);
-    updateCountdown(); // Initial call to avoid 1s delay
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    });
 </script>
+
+</body>
+</html>
