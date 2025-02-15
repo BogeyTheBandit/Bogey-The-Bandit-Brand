@@ -266,6 +266,55 @@
     </div>
 </div>
 
+<!-- Bogey Image Gallery Section -->
+<section id="bogey-gallery" style="text-align: center; margin: 50px auto; padding: 20px; background-color: #1a1a1a; border-radius: 10px;">
+    <h2 style="color: white;">📸 Official Bogey Image Gallery</h2>
+    <p style="color: #D3D3D3;">Scroll through official Bogey images!</p>
+
+    <div class="gallery-container">
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <img id="galleryImage" src="images/handsup.jpg" alt="Bogey Image" class="gallery-img">
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+</section>
+
+<script>
+    // List of image paths
+    const images = [
+        "images/handsup.jpg",
+        "images/concert.webp",
+        "images/hardbattle.webp",
+        "images/jumping-crowd.webp",
+        "images/racks.webp",
+        "images/redcarpet2.jpg",
+        "images/takeover.jpg",
+        "images/HoodLegend.webp",
+        "images/StageBogey.webp",
+        "images/SwoleBogey.webp",
+        "images/WinningBogey.webp",
+        "images/Album1.jpg",
+        "images/award.png",
+        "images/Bogeywithhat.webp",
+        "images/bogey-live-performance.png",
+        "images/bogey-rapping.png",
+        "images/bogey-rap-video.png",
+        "images/countingracksbogey.webp",
+        "images/stage-performance.webp"
+    ];
+
+    let currentIndex = 0;
+
+    function changeSlide(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1;
+        } else if (currentIndex >= images.length) {
+            currentIndex = 0;
+        }
+        document.getElementById("galleryImage").src = images[currentIndex];
+    }
+</script>
+
 
     <section id="roadmap">
     <h2>🚀 BOGEY'S ROADMAP </h2>
