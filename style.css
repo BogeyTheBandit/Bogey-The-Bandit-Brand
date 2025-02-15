@@ -299,4 +299,8 @@
 /* Fading effect for side images */
 .carousel img:not(.active) {
     transform: scale(0.9);
+    .carousel img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover; /* Ensures image fills the space */
 }
