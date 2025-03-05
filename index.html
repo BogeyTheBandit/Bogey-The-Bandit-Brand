@@ -406,6 +406,21 @@ updatePlayer();
 audioPlayer.addEventListener('ended', nextTrack);
 </script>
 
+<div style="text-align: center; margin: 20px 0;">
+    <div style="position: relative; max-width: 800px; margin: 0 auto;">
+        <img id="galleryImage" src="images/handsup.jpg" alt="Bogey Gallery" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: opacity 0.5s ease-in-out;">
+        
+        <!-- Navigation Buttons -->
+        <button onclick="changeSlide(-1)" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 15px; border-radius: 50%; cursor: pointer; font-size: 20px; transition: background 0.3s;">❮</button>
+        <button onclick="changeSlide(1)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 15px; border-radius: 50%; cursor: pointer; font-size: 20px; transition: background 0.3s;">❯</button>
+        
+        <!-- Thumbnail Navigation -->
+        <div id="thumbnails" style="display: flex; justify-content: center; gap: 10px; margin-top: 15px; overflow-x: auto; padding: 10px;">
+            <!-- Thumbnails will be added here by JavaScript -->
+        </div>
+    </div>
+</div>
+
 <script>
     // List of Bogey Image Paths
     const images = [
@@ -442,6 +457,44 @@ audioPlayer.addEventListener('ended', nextTrack);
     ];
 
     let currentIndex = 0;
+    let autoPlayInterval;
+
+    // Create thumbnails
+    function createThumbnails() {
+        const thumbnailsContainer = document.getElementById('thumbnails');
+        images.forEach((src, index) => {
+            const thumb = document.createElement('img');
+            thumb.src = src;
+            thumb.style.width = '60px';
+            thumb.style.height = '40px';
+            thumb.style.objectFit = 'cover';
+            thumb.style.borderRadius = '5px';
+            thumb.style.cursor = 'pointer';
+            thumb.style.border = index === currentIndex ? '2px solid #FFD700' : '2px solid transparent';
+            thumb.onclick = () => {
+                currentIndex = index;
+                updateGallery();
+            };
+            thumbnailsContainer.appendChild(thumb);
+        });
+    }
+
+    function updateGallery() {
+        const galleryImage = document.getElementById('galleryImage');
+        const thumbnails = document.querySelectorAll('#thumbnails img');
+        
+        // Update main image with fade effect
+        galleryImage.style.opacity = '0';
+        setTimeout(() => {
+            galleryImage.src = images[currentIndex];
+            galleryImage.style.opacity = '1';
+        }, 500);
+
+        // Update thumbnails
+        thumbnails.forEach((thumb, index) => {
+            thumb.style.border = index === currentIndex ? '2px solid #FFD700' : '2px solid transparent';
+        });
+    }
 
     function changeSlide(direction) {
         currentIndex += direction;
@@ -450,8 +503,25 @@ audioPlayer.addEventListener('ended', nextTrack);
         } else if (currentIndex >= images.length) {
             currentIndex = 0;
         }
-        document.getElementById("galleryImage").src = images[currentIndex];
+        updateGallery();
     }
+
+    // Auto-play functionality
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(() => changeSlide(1), 5000);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+
+    // Initialize gallery
+    createThumbnails();
+    startAutoPlay();
+
+    // Pause auto-play on hover
+    document.getElementById('galleryImage').addEventListener('mouseenter', stopAutoPlay);
+    document.getElementById('galleryImage').addEventListener('mouseleave', startAutoPlay);
 </script>
 
 
