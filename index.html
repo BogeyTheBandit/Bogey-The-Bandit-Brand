@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOGEY the Bandit - Meme Coin</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        /* General Page Styles */
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(180deg, #0A0A0A, #1A1A1A);
@@ -14,12 +16,34 @@
             text-align: center;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         section {
             padding: 60px 10%;
-            max-width: 900px;
+            max-width: 800px;
             margin: auto;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #1A1A1A;
+            padding: 30px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .main-logo {
+            display: block;
+            margin: 20px auto;
+            width: 300px;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
         }
 
         h1 {
@@ -29,15 +53,9 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-section {
-            position: relative;
-            text-align: center;
-        }
-
-        .hero-logo {
-            width: 300px;
-            max-width: 100%;
-            margin: 20px auto;
+        p {
+            font-size: 18px;
+            color: #D3D3D3;
         }
 
         button {
@@ -49,6 +67,34 @@
             font-weight: bold;
             cursor: pointer;
             border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.5);
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #8B7500, #FFD700);
+            color: white;
+            box-shadow: 0px 0px 20px rgba(255, 215, 0, 1);
+        }
+
+        #tokenomics {
+            text-align: center;
+        }
+
+        #tokenomics canvas {
+            display: block;
+            margin: 20px auto;
+            width: 600px !important; /* Wider chart */
+            max-width: 90%;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .floating-buy {
@@ -58,91 +104,244 @@
             background: linear-gradient(45deg, #FFD700, #8B7500);
             color: black;
             padding: 12px 20px;
+            font-weight: bold;
             border-radius: 8px;
             text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+            transition: all 0.3s ease-in-out;
         }
 
-        .music-player-section {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            border-radius: 10px;
+        .floating-buy:hover {
+            background: linear-gradient(45deg, #8B7500, #FFD700);
+            color: white;
+            box-shadow: 0px 0px 20px rgba(255, 215, 0, 1);
         }
     </style>
 </head>
 <body>
-    <div class="hero-section">
-        <video autoplay muted loop>
-            <source src="images/001-WSC.mp4" type="video/mp4">
-        </video>
-        <div class="hero-content">
-            <img src="images/Bogey The Bandit label.png" alt="Bogey The Bandit" class="hero-logo">
-            <h1>Bogey The Bandit</h1>
-            <p>Official Website</p>
-            <a href="https://dexscreener.com/solana/fhgpmy1odxcdvcwohzt2tmhuzhswq74fyeqt9kevrkbm" target="_blank">
-                <button id="buyNow">BUY NOW</button>
-            </a>
-        </div>
-    </div>
+
+    <header>
+        <img src="Bogey The Bandit label.png" alt="Bogey The Bandit" class="main-logo">
+        <h1>BOGEY THE BANDIT 🦝🔥</h1>
+
+<div id="countdown-container" style="text-align: center; padding: 20px; font-size: 24px; font-weight: bold; color: #FFD700;">
+    <h2>🚀 BOGEY LAUNCH COUNTDOWN</h2>
+    <p id="countdown" class="countdown-timer">Loading...</p>
+</div>
+
+
+<h2 style="color: #FFD700; font-size: 28px; margin-top: 10px;">
+    🎵 The First Meme Coin on Spotify, Apple Music, YouTube Music & Amazon Music! 
+    <img src="spotify-logo.png" alt="Spotify" style="height: 28px; vertical-align: middle; margin-left: 10px;">
+</h2>
+
+        <p><strong>Our goals are the top of the music charts and the crypto charts.</strong> BOGEY isn’t just about hype—it’s about creating a lasting brand in music, entertainment, and Web3.</p>
+<p><strong>💎 Bogey the Bandit loves wearing hard bling and spitting hard bars! 💎</strong></p>
+        <a href="https://dexscreener.com/" target="_blank">
+    <button id="buyNow">BUY NOW</button>
+</a>
+
+    </header>
 
     <section id="about">
-        <h2>Meet Bogey the Bandit</h2>
-        <p>From <strong>spitting bars to dropping NFTs</strong>, BOGEY is here to <strong>dominate the scene</strong>—blending <strong>blockchain, hip-hop culture, and brand-building</strong> like never before.</p>
-        <img src="images/bogey-rapping.png" alt="Bogey Rapping" style="width: 100%; max-width: 500px;">
-    </section>
+    <p>From <strong>spitting bars to dropping NFTs</strong>, BOGEY is here to <strong>dominate the scene</strong>—blending <strong>blockchain, hip-hop culture, and brand-building</strong> like never before.</p>
+    
+    <h3>Why BOGEY Stands Out</h3>
+    <ul>
+        <li><strong>💽 Music First:</strong> The <strong>only</strong> meme coin with full music albums on major streaming platforms.</li>
 
-    <section id="music">
-        <h2>🎵 Listen to Bogey</h2>
-        <a href="https://open.spotify.com/artist/7vF2a3zhQ6rC3TEm6IdmUt" target="_blank">
-            <img src="images/spotify-logo.png" alt="Spotify">
-        </a>
-        <a href="https://music.apple.com/us/artist/bogey-the-bandit/1796362044" target="_blank">
-            <img src="images/Apple_Music_icon.svg.png" alt="Apple Music">
-        </a>
-    </section>
+<img src="bogey-rapping.png" alt="Bogey Rapping" style="display: block; margin: 20px auto; width: 80%; max-width: 500px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);">
 
-    <section id="nft">
-        <h2>🎨 Bogey NFT Collection</h2>
-        <img src="images/BANDIT-001.png" alt="Bogey NFT">
-        <a href="https://solsea.io/c/67c4596c6448d04526d94974" target="_blank">
-            <button>View NFT Collection</button>
-        </a>
-    </section>
+<!-- Music Player -->
+<div style="text-align: center; margin-top: 20px;">
+    <h3>🎵 Listen to BOGEY</h3>
+    <p>Check out some of the hottest tracks straight from the underground!</p>
+    <div>
 
-    <section id="socials">
-        <h2>Follow Bogey</h2>
-        <a href="https://discord.gg/SZZTxHVj" target="_blank"><img src="images/discord-logo.png" alt="Discord"></a>
-        <a href="https://x.com/Bogey_TheBandit" target="_blank"><img src="images/x-logo.png" alt="X (Twitter)"></a>
-        <a href="https://t.me/bogeythebandit" target="_blank"><img src="images/Telegram_2019_Logo.svg.png" alt="Telegram"></a>
-    </section>
+    <p><strong>🔥 Late Night Drive</strong></p>
+    <audio controls>
+        <source src="late-night-drive.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <p><strong>💰 No Handouts</strong></p>
+    <audio controls>
+        <source src="no-handouts.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <p><strong>🛑 No Strings</strong></p>
+    <audio controls>
+        <source src="no-strings.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <p><strong>🚀 Built Different</strong></p>
+    <audio controls>
+        <source src="built-different.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+        <p><strong>🔥 Apply Pressure</strong></p>
+        <audio controls>
+            <source src="apply-pressure.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+    <div>
+        <p><strong>🚀 Can’t Catch Me</strong></p>
+        <audio controls>
+            <source src="cant-catch-me.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+    <div>
+        <p><strong>🏆 Out the Gutter</strong></p>
+        <audio controls>
+            <source src="out-the-gutter.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+</div>
+
+        <li><strong>💎 NFTs & Merch:</strong> Own <strong>exclusive BOGEY NFTs</strong> & high-quality streetwear.</li>
+<img src="bogey-nfts.png" alt="Bogey NFT Collection" style="display: block; margin: 20px auto; width: 80%; max-width: 500px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);">
+
+        <li><strong>🧠 AI-Powered Chatbot:</strong> Chat with BOGEY in real time.</li>
+        <li><strong>📺 BOGEY Cartoon:</strong> An <strong>animated series</strong> in development.</li>
+        <li><strong>🤝 Big Partnerships & Brand Deals:</strong> Expanding into <strong>mainstream entertainment, streetwear, and Web3.</strong></li>
+    </ul>
+    
+    With <strong>BOGEY the Bandit</strong>, you're not just investing in a token—<br> 
+    <strong>YOU'RE INVESTING IN A BRAND.</strong>
+</p>
+
+    <ul>
+        <li>🎶 <strong>Music albums</strong> on <strong>Spotify, Apple Music, and Amazon Music.</strong></li>
+        <li>🛍️ <strong>Exclusive merch</strong> featuring <strong>premium streetwear and collectibles.</strong></li>
+        <li>🧸 <strong>BOGEY the Bandit toys</strong>—from plushies to action figures.</li>
+        <li>📺 <strong>An animated BOGEY the Bandit cartoon.</strong></li>
+    </ul>
+    <p>BOGEY isn’t just <strong>a crypto project</strong>—he’s the <strong>next cultural icon.</strong></p>
+    <strong>🚀 Get in early. Be part of the movement!</strong>
+</section>
 
     <section id="roadmap">
-        <h2>🚀 Roadmap</h2>
-        <p>Bogey’s journey from the underground to the Metaverse.</p>
-        <ul>
-            <li>🎤 Phase 1: Meme virality & launch</li>
-            <li>🎶 Phase 2: NFT & merch expansion</li>
-            <li>📺 Phase 3: Animated series & AI chatbot</li>
-            <li>🔥 Phase 4: Metaverse concerts & token burns</li>
-        </ul>
-    </section>
+    <h2>🚀 BOGEY'S ROADMAP </h2>
+    <p>From underground battles to global dominance—here’s what’s next:</p>
+    <ul>
+        <li><strong>🎤 Phase 1:</strong> Launch Website, Gain First 1,000 Holders, & Go Viral with Memes.</li>
+        <li><strong>🎨 Phase 2:</strong> Drop Exclusive BOGEY NFTs & Expand the Brand.</li>
+        <img src="bogey-live-performance.png" alt="Bogey Performing on Stage" style="display: block; margin: 20px auto; width: 80%; max-width: 600px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);">
+        <li><strong>🎶 Phase 3:</strong> Top The Charts with THE FIRST EVER Meme Coin Music Album on <strong>Spotify, Apple Music, and Amazon Music.</strong></li>
+<!-- Looping Video -->
+<section id="bogey-video" style="text-align: center; margin: 40px 0;">
+    <video autoplay loop muted playsinline style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.7);">
+        <source src="bogey-loop.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
+        <li><strong>📺 Phase 4:</strong> Premiere <strong>BOGEY’s Animated Music Video</strong> on YouTube.</li>
+        <img src="bogey-rap-video.png" alt="Bogey Recording His First Rap Video" style="display: block; margin: 20px auto; width: 80%; max-width: 600px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);">
+        <li><strong>🤝 Phase 5:</strong> **Secure a major brand deal with Walmart** for the first-ever **BOGEY toy collection.**</li>
+        <li><strong>🔥 Phase 6:</strong> Launch **exclusive BOGEY streetwear & collectibles.**</li>
+        <li><strong>💰 Phase 7:</strong> Secure **Major Exchange Listings & Game-Changing Partnerships.**</li>
+        <li><strong>🏆 Phase 8:</strong> Expand into **esports, rap battle collaborations, and Web3 entertainment.**</li>
+        <li><strong>📺 Phase 9:</strong> **Develop and launch the full BOGEY the Bandit Animated Cartoon.**</li>
+    </ul>
+    <p>🚀 **This isn’t just a coin—it’s a movement.** The rap game’s first crypto icon is just getting started.</p>
+</section>
+
 
     <section id="tokenomics">
-        <h2>💰 Tokenomics</h2>
-        <p>🚀 <strong>Liquidity Locked</strong> | No team tokens | Community-driven</p>
-    </section>
+    <h2>💰 Tokenomics</h2>
+    <p style="font-size: 20px; font-weight: bold; color: #FFD700;">🚀 100% Fair Launch – No Presale!</p>
+    <p style="font-size: 18px; color: #D3D3D3; line-height: 1.6;">
+        There will be **no presale**—everyone has an **equal chance** to buy at launch.<br>
+        The **Dev Team** will **buy in like everyone else** after launch to fund **marketing, exchange listings, and community growth.**  
+    </p>
+    <p style="font-size: 16px; font-weight: bold; color: #FFD700;">🔒 Liquidity Locked | 🚀 Contract Renounced | 📈 Community-Owned</p>
+</section>
 
-    <a href="https://dexscreener.com/solana/fhgpmy1odxcdvcwohzt2tmhuzhswq74fyeqt9kevrkbm" target="_blank" class="floating-buy">🛒 Buy BOGEY Now</a>
+
+    <a href="https://dexscreener.com/" target="_blank" class="floating-buy">🛒 Buy BOGEY Now</a>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const ctx = document.getElementById("allocationChart").getContext("2d");
+            new Chart(ctx, {
+                type: "doughnut",
+                data: {
+                    labels: ["Liquidity - 40%", "Marketing - 20%", "Community Rewards - 15%", "NFT & Music Fund - 10%", "Development - 10%", "Reserves - 5%"],
+                    datasets: [{
+                        label: "Token Allocation",
+                        data: [40, 20, 15, 10, 10, 5],
+                        backgroundColor: ["#FFD700", "#8B7500", "#6A0DAD", "#9400D3", "#D3D3D3", "#808080"],
+                        borderColor: "#000",
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            labels: {
+                                color: "white",
+                                font: {
+                                    size: 16,
+                                    weight: "bold"
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Fix: Set the correct UTC date (Months are 0-based, so January = 0, February = 1)
+        const launchDate = new Date(Date.UTC(2024, 1, 16, 21, 0, 0)).getTime(); // Feb 17, 2024 at 3 AM AST
+        
+        console.log("🚀 Launch Date (Timestamp):", launchDate); // Debugging: Show launch timestamp
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            console.log("⏳ Current Time (Timestamp):", now); // Debugging: Show current time
+            console.log("⏳ Time Left (Milliseconds):", launchDate - now);
+
+            const timeLeft = launchDate - now;
+
+            if (timeLeft <= 0) {
+                document.getElementById("countdown").innerHTML = "🚀 WE ARE LIVE!";
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        // Run countdown every second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call to avoid 1s delay
+    });
+</script>
+
+
 </body>
 </html>
+
+
+
+
+
+
+
