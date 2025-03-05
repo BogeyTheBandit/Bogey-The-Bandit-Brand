@@ -262,12 +262,25 @@ function copyAddress() {
             <span id="duration">0:00</span>
         </div>
 
-        <!-- Controls -->
-        <div style="display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 25px;">
-            <button onclick="previousTrack()" class="player-btn" style="background: none; border: none; cursor: pointer; font-size: 28px; color: #FFD700; transition: transform 0.2s, color 0.2s; padding: 10px; border-radius: 50%;">⏮️</button>
-            <button onclick="togglePlay()" id="play-pause" class="player-btn" style="background: none; border: none; cursor: pointer; font-size: 40px; color: #FFD700; transition: transform 0.2s, color 0.2s; padding: 15px; border-radius: 50%;">⏯️</button>
-            <button onclick="nextTrack()" class="player-btn" style="background: none; border: none; cursor: pointer; font-size: 28px; color: #FFD700; transition: transform 0.2s, color 0.2s; padding: 10px; border-radius: 50%;">⏭️</button>
-        </div>
+<!-- Controls -->
+<div style="display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 25px;">
+    <button onclick="previousTrack()" class="player-btn" style="background: linear-gradient(145deg, #FFD700, #FFA500); border: none; cursor: pointer; font-size: 24px; color: #000; transition: all 0.3s ease; padding: 15px; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);">⏮️</button>
+    <button onclick="togglePlay()" id="play-pause" class="player-btn" style="background: linear-gradient(145deg, #FFD700, #FFA500); border: none; cursor: pointer; font-size: 32px; color: #000; transition: all 0.3s ease; padding: 20px; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);">⏯️</button>
+    <button onclick="nextTrack()" class="player-btn" style="background: linear-gradient(145deg, #FFD700, #FFA500); border: none; cursor: pointer; font-size: 24px; color: #000; transition: all 0.3s ease; padding: 15px; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);">⏭️</button>
+</div>
+
+<style>
+/* Player Button Hover Effects */
+.player-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    background: linear-gradient(145deg, #FFA500, #FFD700) !important;
+}
+
+.player-btn:active {
+    transform: scale(0.95);
+}
+</style>
 
         <!-- Volume Control -->
         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
