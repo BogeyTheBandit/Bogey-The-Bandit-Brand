@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* General Page Styles */
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(180deg, #0A0A0A, #1A1A1A);
@@ -15,34 +14,12 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
         section {
             padding: 60px 10%;
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-
-        /* Header Section */
-        header {
-            background-color: #1A1A1A;
-            padding: 30px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .main-logo {
-            display: block;
-            margin: 20px auto;
-            width: 300px;
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
         }
 
         h1 {
@@ -52,9 +29,15 @@
             -webkit-text-fill-color: transparent;
         }
 
-        p {
-            font-size: 18px;
-            color: #D3D3D3;
+        .hero-section {
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-logo {
+            width: 300px;
+            max-width: 100%;
+            margin: 20px auto;
         }
 
         button {
@@ -66,34 +49,6 @@
             font-weight: bold;
             cursor: pointer;
             border-radius: 8px;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.5);
-        }
-
-        button:hover {
-            background: linear-gradient(45deg, #8B7500, #FFD700);
-            color: white;
-            box-shadow: 0px 0px 20px rgba(255, 215, 0, 1);
-        }
-
-        #tokenomics {
-            text-align: center;
-        }
-
-        #tokenomics canvas {
-            display: block;
-            margin: 20px auto;
-            width: 600px !important;
-            max-width: 90%;
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.3);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .floating-buy {
@@ -103,17 +58,8 @@
             background: linear-gradient(45deg, #FFD700, #8B7500);
             color: black;
             padding: 12px 20px;
-            font-weight: bold;
             border-radius: 8px;
             text-decoration: none;
-            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
-            transition: all 0.3s ease-in-out;
-        }
-
-        .floating-buy:hover {
-            background: linear-gradient(45deg, #8B7500, #FFD700);
-            color: white;
-            box-shadow: 0px 0px 20px rgba(255, 215, 0, 1);
         }
 
         .music-player-section {
@@ -123,618 +69,80 @@
             margin: 20px 0;
         }
 
-        .music-player {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .player-controls {
-            display: flex;
-            align-items: center;
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 10px;
-            margin-bottom: 20px;
         }
 
-        .player-controls button {
-            background: none;
-            border: none;
-            color: #FFD700;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 5px;
-            transition: transform 0.2s;
-        }
-
-        .player-controls button:hover {
-            transform: scale(1.1);
-        }
-
-        .progress-bar {
-            flex: 1;
-            height: 5px;
-            background: rgba(255, 215, 0, 0.2);
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .progress {
-            width: 0%;
-            height: 100%;
-            background: #FFD700;
-            border-radius: 5px;
-            transition: width 0.1s linear;
-        }
-
-        .time {
-            color: #FFD700;
-            font-size: 14px;
-        }
-
-        .volume-control {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .volume-control input[type="range"] {
-            width: 100px;
-        }
-
-        .playlist {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .track {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            margin: 5px 0;
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .track:hover {
-            background: rgba(255, 215, 0, 0.2);
-        }
-
-        .track.active {
-            background: rgba(255, 215, 0, 0.3);
-        }
-
-        .track-number {
-            color: #FFD700;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        .track-title {
-            color: white;
-        }
-
-        .nft-section {
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .nft-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .nft-slideshow {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .nft-slide {
-            min-width: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            position: absolute;
+        .gallery-item img {
             width: 100%;
-        }
-
-        .nft-slide.active {
-            opacity: 1;
-            position: relative;
-        }
-
-        .nft-slide img {
-            max-width: 100%;
-            height: auto;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-        }
-
-        .nft-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .nft-prev, .nft-next {
-            background: none;
-            border: none;
-            color: #FFD700;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 10px;
-            transition: transform 0.2s;
-        }
-
-        .nft-prev:hover, .nft-next:hover {
-            transform: scale(1.1);
-        }
-
-        .nft-dots {
-            display: flex;
-            gap: 10px;
-        }
-
-        .nft-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 215, 0, 0.3);
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .nft-dot.active {
-            background: #FFD700;
         }
     </style>
 </head>
 <body>
     <div class="hero-section">
-        <video autoplay muted loop id="hero-video">
+        <video autoplay muted loop>
             <source src="images/001-WSC.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
             <img src="images/Bogey The Bandit label.png" alt="Bogey The Bandit" class="hero-logo">
             <h1>Bogey The Bandit</h1>
             <p>Official Website</p>
-            <a href="https://dexscreener.com/" target="_blank">
+            <a href="https://dexscreener.com/solana/fhgpmy1odxcdvcwohzt2tmhuzhswq74fyeqt9kevrkbm" target="_blank">
                 <button id="buyNow">BUY NOW</button>
             </a>
         </div>
     </div>
 
     <section id="about">
+        <h2>Meet Bogey the Bandit</h2>
         <p>From <strong>spitting bars to dropping NFTs</strong>, BOGEY is here to <strong>dominate the scene</strong>—blending <strong>blockchain, hip-hop culture, and brand-building</strong> like never before.</p>
-        
-        <h3>Why BOGEY Stands Out</h3>
-        <ul>
-            <li><strong>💽 Music First:</strong> The <strong>only</strong> meme coin with full music albums on major streaming platforms.</li>
+        <img src="images/bogey-rapping.png" alt="Bogey Rapping" style="width: 100%; max-width: 500px;">
+    </section>
 
-            <img src="images/bogey-rapping.png" alt="Bogey Rapping" style="display: block; margin: 20px auto; width: 80%; max-width: 500px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);">
+    <section id="music">
+        <h2>🎵 Listen to Bogey</h2>
+        <a href="https://open.spotify.com/artist/7vF2a3zhQ6rC3TEm6IdmUt" target="_blank">
+            <img src="images/spotify-logo.png" alt="Spotify">
+        </a>
+        <a href="https://music.apple.com/us/artist/bogey-the-bandit/1796362044" target="_blank">
+            <img src="images/Apple_Music_icon.svg.png" alt="Apple Music">
+        </a>
+    </section>
 
-            <!-- Music Player -->
-            <div class="music-player-section">
-                <h3>🎵 Listen to BOGEY</h3>
-                <p>Check out some of the hottest tracks straight from the underground!</p>
-                <div class="music-player">
-                    <div class="player-controls">
-                        <button class="prev-btn">⏮️</button>
-                        <button class="play-btn">▶️</button>
-                        <button class="next-btn">⏭️</button>
-                        <div class="progress-bar">
-                            <div class="progress"></div>
-                        </div>
-                        <div class="time">
-                            <span class="current-time">0:00</span>
-                            <span class="duration">0:00</span>
-                        </div>
-                        <div class="volume-control">
-                            <span>🔊</span>
-                            <input type="range" min="0" max="100" value="100">
-                        </div>
-                    </div>
-                    <div class="playlist">
-                        <div class="track" data-src="audio/Empty Eyes.mp3">
-                            <span class="track-number">01</span>
-                            <span class="track-title">Empty Eyes</span>
-                        </div>
-                        <div class="track" data-src="audio/Outlaw Bounce.mp3">
-                            <span class="track-number">02</span>
-                            <span class="track-title">Outlaw Bounce</span>
-                        </div>
-                        <div class="track" data-src="audio/Ride or Die.mp3">
-                            <span class="track-number">03</span>
-                            <span class="track-title">Ride or Die</span>
-                        </div>
-                        <div class="track" data-src="audio/Iron Will.mp3">
-                            <span class="track-number">04</span>
-                            <span class="track-title">Iron Will</span>
-                        </div>
-                        <div class="track" data-src="audio/Neon Nights.mp3">
-                            <span class="track-number">05</span>
-                            <span class="track-title">Neon Nights</span>
-                        </div>
-                        <div class="track" data-src="audio/Used To Be.mp3">
-                            <span class="track-number">06</span>
-                            <span class="track-title">Used To Be</span>
-                        </div>
-                        <div class="track" data-src="audio/Moonlight & Hennessy.mp3">
-                            <span class="track-number">07</span>
-                            <span class="track-title">Moonlight & Hennessy</span>
-                        </div>
-                        <div class="track" data-src="audio/Glitch God.mp3">
-                            <span class="track-number">08</span>
-                            <span class="track-title">Glitch God</span>
-                        </div>
-                        <div class="track" data-src="audio/Trash Panda.mp3">
-                            <span class="track-number">09</span>
-                            <span class="track-title">Trash Panda</span>
-                        </div>
-                        <div class="track" data-src="audio/Big Bogey in Little Tokyo.mp3">
-                            <span class="track-number">10</span>
-                            <span class="track-title">Big Bogey in Little Tokyo</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="nft">
+        <h2>🎨 Bogey NFT Collection</h2>
+        <img src="images/BANDIT-001.png" alt="Bogey NFT">
+        <a href="https://solsea.io/c/67c4596c6448d04526d94974" target="_blank">
+            <button>View NFT Collection</button>
+        </a>
+    </section>
 
-            <li><strong>💎 NFTs & Merch:</strong> Own <strong>exclusive BOGEY NFTs</strong> & high-quality streetwear.</li>
-            <img src="images/bogey-nfts.png" alt="Bogey NFT Collection" style="display: block; margin: 20px auto; width: 80%; max-width: 500px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);">
-
-            <li><strong>🧠 AI-Powered Chatbot:</strong> Chat with BOGEY in real time.</li>
-            <li><strong>📺 BOGEY Cartoon:</strong> An <strong>animated series</strong> in development.</li>
-            <li><strong>🤝 Big Partnerships & Brand Deals:</strong> Expanding into <strong>mainstream entertainment, streetwear, and Web3.</strong></li>
-        </ul>
-        
-        With <strong>BOGEY the Bandit</strong>, you're not just investing in a token—<br>
-        <strong>YOU'RE INVESTING IN A BRAND.</strong>
-    </p>
-
-    <ul>
-        <li>🎶 <strong>Music albums</strong> on <strong>Spotify, Apple Music, and Amazon Music.</strong></li>
-        <li>🛍️ <strong>Exclusive merch</strong> featuring <strong>premium streetwear and collectibles.</strong></li>
-        <li>🧸 <strong>BOGEY the Bandit toys</strong>—from plushies to action figures.</li>
-        <li>📺 <strong>An animated BOGEY the Bandit cartoon.</strong></li>
-    </ul>
-    <p>BOGEY isn't just <strong>a crypto project</strong>—he's the <strong>next cultural icon.</strong></p>
-    <strong>🚀 Get in early. Be part of the movement!</strong>
+    <section id="socials">
+        <h2>Follow Bogey</h2>
+        <a href="https://discord.gg/SZZTxHVj" target="_blank"><img src="images/discord-logo.png" alt="Discord"></a>
+        <a href="https://x.com/Bogey_TheBandit" target="_blank"><img src="images/x-logo.png" alt="X (Twitter)"></a>
+        <a href="https://t.me/bogeythebandit" target="_blank"><img src="images/Telegram_2019_Logo.svg.png" alt="Telegram"></a>
     </section>
 
     <section id="roadmap">
-        <h2>🚀 BOGEY'S ROADMAP </h2>
-        <p>From underground battles to global dominance—here's what's next:</p>
+        <h2>🚀 Roadmap</h2>
+        <p>Bogey’s journey from the underground to the Metaverse.</p>
         <ul>
-            <li><strong>🎤 Phase 1:</strong> Launch Website, Gain First 1,000 Holders, & Go Viral with Memes.</li>
-            <li><strong>🎨 Phase 2:</strong> Drop Exclusive BOGEY NFTs & Expand the Brand.</li>
-            <img src="images/bogey-live-performance.png" alt="Bogey Performing on Stage" style="display: block; margin: 20px auto; width: 80%; max-width: 600px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);">
-            <li><strong>🎶 Phase 3:</strong> Top The Charts with THE FIRST EVER Meme Coin Music Album on <strong>Spotify, Apple Music, and Amazon Music.</strong></li>
-            
-            <!-- Looping Video -->
-            <section id="bogey-video" style="text-align: center; margin: 40px 0;">
-                <video autoplay loop muted playsinline style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.7);">
-                    <source src="images/bogey-loop.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </section>
-            
-            <li><strong>📺 Phase 4:</strong> Premiere <strong>BOGEY's Animated Music Video</strong> on YouTube.</li>
-            <img src="images/bogey-rap-video.png" alt="Bogey Recording His First Rap Video" style="display: block; margin: 20px auto; width: 80%; max-width: 600px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);">
-            <li><strong>🤝 Phase 5:</strong> **Secure a major brand deal with Walmart** for the first-ever **BOGEY toy collection.**</li>
-            <li><strong>🔥 Phase 6:</strong> Launch **exclusive BOGEY streetwear & collectibles.**</li>
-            <li><strong>💰 Phase 7:</strong> Secure **Major Exchange Listings & Game-Changing Partnerships.**</li>
-            <li><strong>🏆 Phase 8:</strong> Expand into **esports, rap battle collaborations, and Web3 entertainment.**</li>
-            <li><strong>📺 Phase 9:</strong> **Develop and launch the full BOGEY the Bandit Animated Cartoon.**</li>
+            <li>🎤 Phase 1: Meme virality & launch</li>
+            <li>🎶 Phase 2: NFT & merch expansion</li>
+            <li>📺 Phase 3: Animated series & AI chatbot</li>
+            <li>🔥 Phase 4: Metaverse concerts & token burns</li>
         </ul>
-        <p>🚀 **This isn't just a coin—it's a movement.** The rap game's first crypto icon is just getting started.</p>
     </section>
 
     <section id="tokenomics">
         <h2>💰 Tokenomics</h2>
-        <p style="font-size: 20px; font-weight: bold; color: #FFD700;">🚀 100% Fair Launch – No Presale!</p>
-        <p style="font-size: 18px; color: #D3D3D3; line-height: 1.6;">
-            There will be **no presale**—everyone has an **equal chance** to buy at launch.<br>
-            The **Dev Team** will **buy in like everyone else** after launch to fund **marketing, exchange listings, and community growth.**  
-        </p>
-        <p style="font-size: 16px; font-weight: bold; color: #FFD700;">🔒 Liquidity Locked | 🚀 Contract Renounced | 📈 Community-Owned</p>
+        <p>🚀 <strong>Liquidity Locked</strong> | No team tokens | Community-driven</p>
     </section>
 
-    <a href="https://dexscreener.com/" target="_blank" class="floating-buy">🛒 Buy BOGEY Now</a>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const ctx = document.getElementById("allocationChart").getContext("2d");
-            new Chart(ctx, {
-                type: "doughnut",
-                data: {
-                    labels: ["Liquidity - 40%", "Marketing - 20%", "Community Rewards - 15%", "NFT & Music Fund - 10%", "Development - 10%", "Reserves - 5%"],
-                    datasets: [{
-                        label: "Token Allocation",
-                        data: [40, 20, 15, 10, 10, 5],
-                        backgroundColor: ["#FFD700", "#8B7500", "#6A0DAD", "#9400D3", "#D3D3D3", "#808080"],
-                        borderColor: "#000",
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: "bottom",
-                            labels: {
-                                color: "white",
-                                font: {
-                                    size: 16,
-                                    weight: "bold"
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const launchDate = new Date(Date.UTC(2024, 1, 16, 21, 0, 0)).getTime();
-            
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const timeLeft = launchDate - now;
-
-                if (timeLeft <= 0) {
-                    document.getElementById("countdown").innerHTML = "🚀 WE ARE LIVE!";
-                    clearInterval(countdownInterval);
-                    return;
-                }
-
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            }
-
-            const countdownInterval = setInterval(updateCountdown, 1000);
-            updateCountdown();
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const audio = new Audio();
-            const playBtn = document.querySelector('.play-btn');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-            const progressBar = document.querySelector('.progress');
-            const progressContainer = document.querySelector('.progress-bar');
-            const currentTimeEl = document.querySelector('.current-time');
-            const durationEl = document.querySelector('.duration');
-            const volumeControl = document.querySelector('.volume-control input');
-            const tracks = document.querySelectorAll('.track');
-            let currentTrackIndex = 0;
-
-            function loadTrack(index) {
-                const track = tracks[index];
-                audio.src = track.dataset.src;
-                tracks.forEach(t => t.classList.remove('active'));
-                track.classList.add('active');
-                audio.play();
-                playBtn.textContent = '⏸️';
-            }
-
-            function updateProgress(e) {
-                const { duration, currentTime } = audio;
-                const progressPercent = (currentTime / duration) * 100;
-                progressBar.style.width = `${progressPercent}%`;
-                currentTimeEl.textContent = formatTime(currentTime);
-                durationEl.textContent = formatTime(duration);
-            }
-
-            function setProgress(e) {
-                const width = this.clientWidth;
-                const clickX = e.offsetX;
-                const duration = audio.duration;
-                audio.currentTime = (clickX / width) * duration;
-            }
-
-            function formatTime(seconds) {
-                const minutes = Math.floor(seconds / 60);
-                const remainingSeconds = Math.floor(seconds % 60);
-                return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-            }
-
-            playBtn.addEventListener('click', () => {
-                if (audio.paused) {
-                    audio.play();
-                    playBtn.textContent = '⏸️';
-                } else {
-                    audio.pause();
-                    playBtn.textContent = '▶️';
-                }
-            });
-
-            prevBtn.addEventListener('click', () => {
-                currentTrackIndex--;
-                if (currentTrackIndex < 0) currentTrackIndex = tracks.length - 1;
-                loadTrack(currentTrackIndex);
-            });
-
-            nextBtn.addEventListener('click', () => {
-                currentTrackIndex++;
-                if (currentTrackIndex >= tracks.length) currentTrackIndex = 0;
-                loadTrack(currentTrackIndex);
-            });
-
-            audio.addEventListener('timeupdate', updateProgress);
-            progressContainer.addEventListener('click', setProgress);
-            volumeControl.addEventListener('input', (e) => {
-                audio.volume = e.target.value / 100;
-            });
-
-            tracks.forEach((track, index) => {
-                track.addEventListener('click', () => {
-                    currentTrackIndex = index;
-                    loadTrack(currentTrackIndex);
-                });
-            });
-
-            // Load first track
-            loadTrack(0);
-        });
-    </script>
-
-    <!-- NFTs Section -->
-    <section id="nfts" class="nft-section">
-        <h2>🎨 BOGEY NFT Collection</h2>
-        <p>Own a piece of the Bogey legacy with our exclusive NFT collection!</p>
-        
-        <div class="nft-container">
-            <div class="nft-slideshow">
-                <div class="slides">
-                    <div class="slide"><img src="images/BANDIT-001.png" alt="BANDIT #001"></div>
-                    <div class="slide"><img src="images/BANDIT-002.png" alt="BANDIT #002"></div>
-                    <div class="slide"><img src="images/BANDIT-003.png" alt="BANDIT #003"></div>
-                    <div class="slide"><img src="images/BANDIT-004.png" alt="BANDIT #004"></div>
-                    <div class="slide"><img src="images/BANDIT-005.png" alt="BANDIT #005"></div>
-                    <div class="slide"><img src="images/BANDIT-006.png" alt="BANDIT #006"></div>
-                    <div class="slide"><img src="images/BANDIT-007.png" alt="BANDIT #007"></div>
-                </div>
-                <button class="prev">❮</button>
-                <button class="next">❯</button>
-            </div>
-            
-            <div class="nft-controls">
-                <button class="nft-prev">❮</button>
-                <button class="nft-next">❯</button>
-                <div class="nft-dots"></div>
-            </div>
-        </div>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const slides = document.querySelectorAll('.slide');
-                const dotsContainer = document.querySelector('.nft-dots');
-                const prevBtn = document.querySelector('.nft-prev');
-                const nextBtn = document.querySelector('.nft-next');
-                let currentSlide = 0;
-
-                // Create dots
-                slides.forEach((_, index) => {
-                    const dot = document.createElement('div');
-                    dot.classList.add('nft-dot');
-                    if (index === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => goToSlide(index));
-                    dotsContainer.appendChild(dot);
-                });
-
-                const dots = document.querySelectorAll('.nft-dot');
-
-                function updateSlides() {
-                    slides.forEach((slide, index) => {
-                        slide.classList.toggle('active', index === currentSlide);
-                    });
-                    dots.forEach((dot, index) => {
-                        dot.classList.toggle('active', index === currentSlide);
-                    });
-                }
-
-                function goToSlide(index) {
-                    currentSlide = index;
-                    updateSlides();
-                }
-
-                function nextSlide() {
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    updateSlides();
-                }
-
-                function prevSlide() {
-                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                    updateSlides();
-                }
-
-                prevBtn.addEventListener('click', prevSlide);
-                nextBtn.addEventListener('click', nextSlide);
-
-                // Auto-advance slides every 5 seconds
-                setInterval(nextSlide, 5000);
-            });
-        </script>
-    </section>
-
-    <!-- Social Links -->
-    <div class="social-links">
-        <a href="https://open.spotify.com/artist/your-spotify-id" target="_blank">
-            <img src="images/spotify-logo.png" alt="Spotify">
-        </a>
-        <a href="https://music.apple.com/artist/your-apple-id" target="_blank">
-            <img src="images/Apple_Music_icon.svg.png" alt="Apple Music">
-        </a>
-        <a href="https://youtube.com/your-channel" target="_blank">
-            <img src="images/youtube-logo.avif" alt="YouTube">
-        </a>
-        <a href="https://discord.gg/your-server" target="_blank">
-            <img src="images/discord-logo.png" alt="Discord">
-        </a>
-        <a href="https://t.me/your-channel" target="_blank">
-            <img src="images/Telegram_2019_Logo.svg.png" alt="Telegram">
-        </a>
-        <a href="https://twitter.com/your-handle" target="_blank">
-            <img src="images/x-logo.png" alt="X (Twitter)">
-        </a>
-    </div>
-
-    <div class="gallery-section">
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="images/Bogeywithhat.webp" alt="Bogey with Hat">
-            </div>
-            <div class="gallery-item">
-                <img src="images/HoodLegend.webp" alt="Hood Legend">
-            </div>
-            <div class="gallery-item">
-                <img src="images/StageBogey.webp" alt="Stage Bogey">
-            </div>
-            <div class="gallery-item">
-                <img src="images/SwoleBogey.webp" alt="Swole Bogey">
-            </div>
-            <div class="gallery-item">
-                <img src="images/concert.webp" alt="Concert">
-            </div>
-            <div class="gallery-item">
-                <img src="images/countingracksbogey.webp" alt="Counting Racks">
-            </div>
-            <div class="gallery-item">
-                <img src="images/hardbattle.webp" alt="Hard Battle">
-            </div>
-            <div class="gallery-item">
-                <img src="images/jumping-crowd.webp" alt="Jumping Crowd">
-            </div>
-            <div class="gallery-item">
-                <img src="images/racks.webp" alt="Racks">
-            </div>
-            <div class="gallery-item">
-                <img src="images/stage-performance.webp" alt="Stage Performance">
-            </div>
-            <div class="gallery-item">
-                <img src="images/Album1.jpg" alt="Album 1">
-            </div>
-            <div class="gallery-item">
-                <img src="images/handsup.jpg" alt="Hands Up">
-            </div>
-            <div class="gallery-item">
-                <img src="images/redcarpet2.jpg" alt="Red Carpet">
-            </div>
-            <div class="gallery-item">
-                <img src="images/takeover.jpg" alt="Takeover">
-            </div>
-        </div>
-    </div>
+    <a href="https://dexscreener.com/solana/fhgpmy1odxcdvcwohzt2tmhuzhswq74fyeqt9kevrkbm" target="_blank" class="floating-buy">🛒 Buy BOGEY Now</a>
 </body>
-</html> 
+</html>
