@@ -133,7 +133,12 @@
 <!-- Coin Address Section -->
 <div id="coin-address-container" style="text-align: center; margin: 20px 0; padding: 10px; background-color: #1a1a1a; border-radius: 10px;">
     <h2 style="color: #FFD700; font-size: 24px;">💰 Coin Address:</h2>
-    <p id="coin-address" style="font-size: 18px; color: white; cursor: pointer; padding: 10px; border-radius: 5px; transition: background-color 0.3s;" onclick="copyAddress()">4yCcLXswoYbicYLZDpTaGQWcPNUy2yNwu1MhPXNbY52u</p>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin: 10px 0;">
+        <p id="coin-address" style="font-size: 18px; color: white; margin: 0;">4yCcLXswoYbicYLZDpTaGQWcPNUy2yNwu1MhPXNbY52u</p>
+        <button onclick="copyAddress()" style="background: #FFD700; border: none; border-radius: 5px; padding: 8px 15px; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: background-color 0.3s;">
+            <span>📋 Copy</span>
+        </button>
+    </div>
     <p id="copy-message" style="color: #FFD700; font-size: 14px; margin-top: 5px;"></p>
 </div>
 
