@@ -3,540 +3,1957 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOGEY the Bandit - Meme Coin</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Bogey The Bandit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* General Page Styles */
+        :root {
+            --bogey-gold: #FFD700;
+            --bogey-gold-dark: #8B7500;
+            --bogey-dark: #1A1A1A;
+            --bogey-darker: #0A0A0A;
+            --hip-hop-purple: #800080;
+            --hip-hop-purple-light: #9932CC;
+            --charcoal: #2F2F2F;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(180deg, #0A0A0A, #1A1A1A);
-            color: white;
-            text-align: center;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            background: var(--bogey-dark);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nft-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .nft-collection {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--bogey-gold);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn-primary {
+            background: var(--bogey-gold);
+            color: var(--bogey-darker);
+            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+            background: var(--bogey-gold-dark);
+            color: var(--bogey-gold);
+        }
+
+        .heading-gradient {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5rem;
+            color: var(--bogey-gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: shine 3s infinite;
         }
 
         section {
-            padding: 60px 10%;
-            max-width: 800px;
-            margin: auto;
-            animation: fadeIn 0.8s ease-in-out;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
         }
-    
-        /* Header Section */
-        header {
-            background-color: #1A1A1A;
-            padding: 30px;
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at center, rgba(128, 0, 128, 0.1) 0%, transparent 70%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,215,0,0.1)"/></svg>');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            text-align: center;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15;
+            filter: hue-rotate(45deg);
         }
 
-        .main-logo {
-            display: block;
-            margin: 20px auto;
-            width: 300px;
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out;
         }
 
-        h1 {
-            font-size: 36px;
-            background: linear-gradient(90deg, #FFD700, #8B7500);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p {
-            font-size: 18px;
-            color: #D3D3D3;
-        }
-
-        button {
-            background: linear-gradient(45deg, #FFD700, #8B7500);
-            color: black;
-            padding: 14px 28px;
-            border: 2px solid #FFD700;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
+        .hero img {
+            max-width: 300px;
+            margin-bottom: 20px;
             border-radius: 8px;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
+            animation: bounceGold 2s infinite;
         }
 
-        button:hover {
-            background: linear-gradient(45deg, #8B7500, #FFD700);
-            color: white;
-            box-shadow: 0px 0px 20px rgba(255, 215, 0, 1);
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
         }
 
-        #tokenomics {
-            text-align: center;
+        .coin-address {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: 0 auto;
+            border: 2px solid var(--bogey-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
         }
 
-        #tokenomics canvas {
-            display: block;
-            margin: 20px auto;
-            width: 600px !important; /* Wider chart */
-            max-width: 90%;
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.3);
+        .coin-address h2 {
+            color: var(--bogey-gold);
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .coin-address p {
+            font-family: monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+            color: var(--bogey-gold);
+        }
+
+        .platforms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .platforms img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            filter: grayscale(100%);
+        }
+
+        .platforms img:hover {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .tracks {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .track {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .track:hover {
+            border-color: var(--bogey-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .track h3 {
+            margin-bottom: 10px;
+            color: var(--bogey-gold);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .track audio {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--bogey-gold);
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-links img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            filter: grayscale(100%);
+        }
+
+        .social-links img:hover {
+            transform: scale(1.05);
+            filter: grayscale(0%);
         }
 
         .floating-buy {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: linear-gradient(45deg, #FFD700, #8B7500);
-            color: black;
-            padding: 12px 20px;
-            font-weight: bold;
-            border-radius: 8px;
+            z-index: 100;
+            background: var(--bogey-gold);
+            color: var(--bogey-darker);
+            padding: 15px 30px;
+            border-radius: 50px;
             text-decoration: none;
-            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
-            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            animation: pulseGold 2s infinite;
         }
 
         .floating-buy:hover {
-            background: linear-gradient(45deg, #8B7500, #FFD700);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+            background: var(--bogey-gold-dark);
+            color: var(--bogey-gold);
+        }
+
+        /* Audio Player Styles */
+        .music-player {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .track-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--bogey-gold);
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .player-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--bogey-gold);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            color: var(--bogey-gold);
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        .controls-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .playback-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .volume-slider {
+            width: 100px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .volume-progress {
+            height: 100%;
+            background: var(--bogey-gold);
+            border-radius: 2px;
+            width: 100%;
+            transition: width 0.1s linear;
+        }
+
+        .control-button {
+            background: transparent;
+            border: none;
+            color: var(--bogey-gold);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .control-button:hover {
+            transform: scale(1.1);
+            color: var(--bogey-gold-dark);
+        }
+
+        .control-button svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .play-button {
+            background: var(--bogey-gold);
+            color: var(--bogey-darker);
+            width: 40px;
+            height: 40px;
+        }
+
+        .play-button:hover {
+            background: var(--bogey-gold-dark);
+            color: var(--bogey-gold);
+        }
+
+        .shuffle-btn.active {
+            color: var(--bogey-gold);
+        }
+
+        .address-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(26, 26, 26, 0.5);
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .copy-btn {
+            background: var(--bogey-gold);
+            border: none;
+            border-radius: 4px;
+            padding: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.05);
+            background: var(--bogey-gold-dark);
+        }
+
+        .copy-btn svg {
+            width: 20px;
+            height: 20px;
+            color: var(--bogey-darker);
+        }
+
+        .copy-btn.copied {
+            background: #4CAF50;
+        }
+
+        /* Hip-hop inspired decorative elements */
+        .decorative-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--bogey-gold), transparent);
+            margin: 20px 0;
+        }
+
+        .decorative-corner {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--bogey-gold);
+        }
+
+        .decorative-corner.top-left {
+            top: 0;
+            left: 0;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .decorative-corner.top-right {
+            top: 0;
+            right: 0;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .decorative-corner.bottom-left {
+            bottom: 0;
+            left: 0;
+            border-right: none;
+            border-top: none;
+        }
+
+        .decorative-corner.bottom-right {
+            bottom: 0;
+            right: 0;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* Responsive design improvements */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn-primary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Picture Carousel Styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+        .slideshow-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .slide {
+            flex: 0 0 300px;
+            position: relative;
+            transition: all 0.5s ease-in-out;
+            opacity: 0.5;
+            transform: scale(0.8);
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 2;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .slide.active img {
+            border-color: var(--bogey-gold);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .slideshow-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(45deg, var(--bogey-darker), var(--hip-hop-purple));
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 10;
             color: white;
-            box-shadow: 0px 0px 20px rgba(255, 215, 0, 1);
+        }
+
+        .slideshow-nav:hover {
+            transform: translateY(-50%) scale(1.1);
+            background: linear-gradient(45deg, var(--hip-hop-purple), var(--bogey-darker));
+        }
+
+        .slideshow-nav.prev {
+            left: 20px;
+        }
+
+        .slideshow-nav.next {
+            right: 20px;
+        }
+
+        .slideshow-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--bogey-gold);
+            transform: scale(1.2);
+        }
+
+        .track-list {
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            padding-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--bogey-gold) var(--bogey-darker);
+        }
+
+        .track-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .track-list::-webkit-scrollbar-track {
+            background: var(--bogey-darker);
+            border-radius: 4px;
+        }
+
+        .track-list::-webkit-scrollbar-thumb {
+            background: var(--bogey-gold);
+            border-radius: 4px;
+        }
+
+        .track-list::-webkit-scrollbar-thumb:hover {
+            background: var(--bogey-gold-dark);
+        }
+
+        .track-list-header {
+            position: sticky;
+            top: 0;
+            background: var(--bogey-darker);
+            z-index: 1;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .track-item {
+            display: grid;
+            grid-template-columns: 50px 1fr 100px;
+            gap: 20px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+
+        .track-item:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .track-item.active {
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .track-number {
+            color: var(--bogey-gold);
+        }
+
+        .track-name {
+            color: var(--bogey-gold);
+        }
+
+        .track-duration {
+            color: var(--bogey-gold);
+        }
+
+        /* Roadmap Styles */
+        .roadmap-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 0;
+            overflow: hidden;
+        }
+
+        .roadmap-slide {
+            display: none;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.5s ease-in-out;
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid var(--bogey-gold);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.1);
+        }
+
+        .roadmap-slide.active {
+            display: block;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .roadmap-phase {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .phase-number {
+            background: var(--bogey-gold);
+            color: var(--bogey-darker);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .roadmap-phase h3 {
+            font-size: 2.5rem;
+            color: var(--bogey-gold);
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .roadmap-content {
+            padding: 20px 0;
+        }
+
+        .roadmap-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .roadmap-content li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: var(--bogey-gold);
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .roadmap-content li:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateX(10px);
+        }
+
+        .roadmap-content li::before {
+            content: '→';
+            color: var(--bogey-gold);
+            font-size: 1.5rem;
+        }
+
+        .roadmap-navigation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .roadmap-nav {
+            background: var(--bogey-gold);
+            color: var(--bogey-darker);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.5rem;
+        }
+
+        .roadmap-nav:hover {
+            transform: scale(1.1);
+            background: var(--bogey-gold-dark);
+            color: var(--bogey-gold);
+        }
+
+        .roadmap-dots {
+            display: flex;
+            gap: 10px;
+        }
+
+        .roadmap-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .roadmap-dots .dot.active {
+            background: var(--bogey-gold);
+            transform: scale(1.2);
+        }
+
+        .nft-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .nft-slideshow {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .nft-slide {
+            display: none;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.5s ease-in-out;
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid var(--bogey-gold);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.1);
+        }
+
+        .nft-slide.active {
+            display: block;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .nft-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+            background: var(--bogey-darker);
+        }
+
+        .nft-info {
+            padding: 20px;
+            text-align: center;
+            background: rgba(26, 26, 26, 0.8);
+            border-top: 1px solid var(--bogey-gold);
+        }
+
+        .nft-info h3 {
+            color: var(--bogey-gold);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .nft-info p {
+            color: var(--bogey-gold);
+            opacity: 0.8;
+            font-size: 1.2rem;
+        }
+
+        .nft-navigation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .nft-nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .nft-nav button {
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: var(--bogey-gold);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 1rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nft-nav button:hover {
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--bogey-gold);
+        }
+
+        .nft-dots {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nft-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nft-dots .dot.active {
+            background: var(--bogey-gold);
+            transform: scale(1.2);
+        }
+
+        .nft-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .nft-slide img {
+                height: 300px;
+            }
+
+            .nft-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* NFT Modal Styles */
+        .nft-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nft-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .nft-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            background: var(--bogey-darker);
+            border: 2px solid var(--bogey-gold);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .nft-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 40px;
+            color: var(--bogey-gold);
+            cursor: pointer;
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+
+        .nft-modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .nft-modal-body {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .nft-modal-image-container {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .nft-modal-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .nft-modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bogey-gold);
+            color: var(--bogey-darker);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 1001;
+        }
+
+        .nft-modal-nav:hover {
+            transform: translateY(-50%) scale(1.1);
+            background: var(--bogey-gold-dark);
+            color: var(--bogey-gold);
+        }
+
+        .nft-modal-nav.prev {
+            left: 20px;
+        }
+
+        .nft-modal-nav.next {
+            right: 20px;
+        }
+
+        .nft-modal-info {
+            padding: 20px;
+            text-align: center;
+            background: rgba(26, 26, 26, 0.8);
+            border-top: 1px solid var(--bogey-gold);
+        }
+
+        .nft-modal-info h3 {
+            color: var(--bogey-gold);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .nft-modal-info p {
+            color: var(--bogey-gold);
+            opacity: 0.8;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nft-modal-content {
+                width: 95%;
+            }
+
+            .nft-modal-body {
+                padding: 20px;
+            }
+
+            .nft-modal-nav {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* NFT Section Styles */
+        .nft-section {
+            background: var(--bogey-darker);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nft-slideshow {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .nft-slide {
+            display: none;
+            text-align: center;
+        }
+
+        .nft-slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .nft-slide img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+            border: 2px solid var(--bogey-gold);
+        }
+
+        .nft-info {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 8px;
+            border: 1px solid var(--bogey-gold);
+        }
+
+        .nft-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--bogey-gold);
+            margin-bottom: 10px;
+        }
+
+        .nft-info p {
+            color: var(--bogey-gold);
+            margin: 0;
+        }
+
+        .nft-nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .nft-nav button {
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: var(--bogey-gold);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 1rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nft-nav button:hover {
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--bogey-gold);
+        }
+
+        .nft-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .nft-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nft-dots .dot.active {
+            background: var(--bogey-gold);
+            transform: scale(1.2);
+        }
+
+        .nft-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
+    <section class="hero">
+        <video autoplay loop muted playsinline>
+            <source src="videos/bogey-loop.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <img src="images/Bogey The Bandit label.png" alt="Bogey The Bandit">
+            <h1 class="heading-gradient">BOGEY THE BANDIT 🦝🔥</h1>
+            <p>The First Meme Coin on Spotify, Apple Music, YouTube Music & Amazon Music!</p>
+            
+            <div class="button-group">
+                <a href="https://dexscreener.com/solana/fhgpmy1odxcdvcwohzt2tmhuzhswq74fyeqt9kevrkbm" target="_blank" class="btn-primary">BUY NOW</a>
+                <a href="#community-section" class="btn-primary">Join Community</a>
+            </div>
 
-    <header>
-        <img src="Bogey The Bandit label.png" alt="Bogey The Bandit" class="main-logo">
-        <h1>BOGEY THE BANDIT 🦝🔥</h1>
-        
-<!-- Buy Now Button -->
-<a href="https://dexscreener.com/solana/fhgpmy1odxcdvcwohzt2tmhuzhswq74fyeqt9kevrkbm" target="_blank">
-    <button id="buyNow">BUY NOW</button>
-</a>
-
-        
-<!-- Coin Address Section -->
-<div id="coin-address-container" style="text-align: center; margin: 20px 0; padding: 10px; background-color: #1a1a1a; border-radius: 10px;">
-    <h2 style="color: #FFD700; font-size: 24px;">💰 Coin Address:</h2>
-    <p id="coin-address" style="font-size: 18px; color: white;">4yCcLXswoYbicYLZDpTaGQWcPNUy2yNwu1MhPXNbY52u</p>
-</div>
-
-
-        <!-- First Meme Coin Announcement -->
-        <h2 style="color: #FFD700; font-size: 28px; margin-top: 10px;">
-            🎵 The First Meme Coin on Spotify, Apple Music, YouTube Music & Amazon Music! 
-            <img src="spotify-logo.png" alt="Spotify" style="height: 28px; vertical-align: middle; margin-left: 10px;">
-        </h2>
-
-<!-- Streaming Platforms Section -->
-<section id="streaming-platforms" style="text-align: center; margin: 40px auto; padding: 20px; background-color: #1a1a1a; border-radius: 10px; width: 90%; max-width: 600px;">
-    <h2>🎵 Listen to Bogey on Streaming Platforms</h2>
-    <p style="color: #D3D3D3; font-size: 18px;">Bogey’s music is now available! More platforms coming soon.</p>
-
-    <div id="streaming-buttons" style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
-        <!-- YouTube Music Button -->
-        <a href="https://music.youtube.com/search?q=bogey+the+bandit" target="_blank" style="display: inline-block; text-decoration: none;">
-            <img src="youtube-logo.avif" alt="Listen on YouTube Music"
-                style="width: 180px; height: auto; border-radius: 8px; box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.5); transition: transform 0.2s ease-in-out;">
-        </a>
-
-        <!-- Spotify Button -->
-        <a href="https://open.spotify.com/artist/7vF2a3zhQ6rC3TEm6IdmUt" target="_blank" style="display: inline-block; text-decoration: none;">
-            <img src="spotify-logo.png" alt="Listen on Spotify"
-                style="width: 180px; height: auto; border-radius: 8px; box-shadow: 0px 4px 10px rgba(30, 215, 96, 0.5); transition: transform 0.2s ease-in-out;">
-        </a>
-                </a>
-
-        <!-- Apple Music Button -->
-        <a href="https://music.apple.com/us/artist/bogey-the-bandit/1796362044" target="_blank" style="display: inline-block; text-decoration: none;">
-            <img src="Apple_Music_icon.svg.png" alt="Listen on Apple Music"
-                style="width: 180px; height: auto; border-radius: 8px; box-shadow: 0px 4px 10px rgba(255, 59, 48, 0.5); transition: transform 0.2s ease-in-out;">
-        </a>
-    </div>
-</section>
-
-
-
-        <p><strong>Our goals are the top of the music charts and the crypto charts.</strong> BOGEY isn’t just about hype—it’s about creating a lasting brand in music, entertainment, and Web3.</p>
-        <p><strong>💎 Bogey the Bandit loves wearing hard bling and spitting hard bars! 💎</strong></p>
-
-<!-- Socials Section (Now Below the Buy Button) -->
-<div style="margin-top: 20px;">
-    <h3 style="color: white; font-size: 20px; margin-bottom: 10px;">Follow Bogey on Socials</h3>
-    <p style="color: #FFD700; font-size: 18px; font-weight: bold; text-align: center;">
-        👀 Talk to Bogey Himself inside Discord! <br> 🎤 **LIVE NOW - Interactive Bogey The Bandit AI!**
-    </p>
-
-    <div style="display: flex; gap: 15px; justify-content: center; align-items: center; margin-top: 10px;">
-        <!-- Discord Button -->
-        <a href="https://discord.gg/yPs4x5H8RK" target="_blank">
-            <img src="discord-logo.png" alt="Join the Bogey Discord" 
-                 style="width: 180px; height: auto; border-radius: 8px; box-shadow: 0px 4px 10px rgba(114, 137, 218, 0.5); transition: transform 0.2s ease-in-out;">
-        </a>
-
-        <!-- X (Twitter) Button (Fixed Link) -->
-        <a href="https://x.com/Bogey_TheBandit" target="_blank">
-            <img src="x-logo.png" alt="Follow on X" 
-                 style="width: 180px; height: auto; border-radius: 8px; box-shadow: 0px 4px 10px rgba(29, 161, 242, 0.5); transition: transform 0.2s ease-in-out;">
-        </a>
-
-       <!-- Telegram Button -->
-<a href="https://t.me/bogeythebandit" target="_blank">
-    <img src="Telegram_2019_Logo.svg.png" alt="Join Bogey's Underground Telegram" 
-         style="width: 180px; height: auto; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 136, 204, 0.5); transition: transform 0.2s ease-in-out;">
-</a>
-
-    </div>
-</div>
-
-
-
-    </header>
-
-    <section id="about">
-    <p>From <strong>spitting bars to dropping NFTs</strong>, BOGEY is here to <strong>dominate the scene</strong>—blending <strong>blockchain, hip-hop culture, and brand-building</strong> like never before.</p>
-    
-    <h3>Why BOGEY Stands Out</h3>
-    <ul>
-        <li><strong>💽 Music First:</strong> The <strong>only</strong> meme coin with full music albums on major streaming platforms.</li>
-
-<!-- Looping Video - Bogey Rapper -->
-<section id="bogey-rapper-video" style="text-align: center; margin: 40px 0;">
-    <video autoplay loop muted playsinline 
-        style="width: 100%; max-width: 1200px; height: auto; border-radius: 10px; box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.7);">
-        <source src="Bogey-rapper.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</section>
-
-<!-- Music Player -->
-<div style="text-align: center; margin-top: 20px;">
-    <h3>🎵 Listen to BOGEY</h3>
-    <p>Check out some of the hottest tracks straight from the underground!</p>
-    <div>
-        <p><strong>🚨 Rug Pull</strong></p>
-    <audio controls>
-        <source src="Rug-Pull.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <p><strong>🔥 Off The Chain</strong></p>
-    <audio controls>
-        <source src="off-the-chain.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <p><strong>🔥 Late Night Drive</strong></p>
-    <audio controls>
-        <source src="late-night-drive.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <p><strong>💰 No Handouts</strong></p>
-    <audio controls>
-        <source src="no-handouts.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <p><strong>🛑 No Strings</strong></p>
-    <audio controls>
-        <source src="no-strings.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <p><strong>🚀 Built Different</strong></p>
-    <audio controls>
-        <source src="built-different.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-
-        <p><strong>🔥 Apply Pressure</strong></p>
-        <audio controls>
-            <source src="apply-pressure.mp3" type="audio/mpeg">
-            Your browser does not support the audio tag.
-        </audio>
-    </div>
-    <div>
-        <p><strong>🚀 Can’t Catch Me</strong></p>
-        <audio controls>
-            <source src="cant-catch-me.mp3" type="audio/mpeg">
-            Your browser does not support the audio tag.
-        </audio>
-    </div>
-    <div>
-        <p><strong>🏆 Out the Gutter</strong></p>
-        <audio controls>
-            <source src="out-the-gutter.mp3" type="audio/mpeg">
-            Your browser does not support the audio tag.
-        </audio>
-    </div>
-</div>
-
-<!-- Bogey Image Gallery Section -->
-<section id="bogey-gallery" style="text-align: center; margin: 50px auto; padding: 20px; background-color: #1a1a1a; border-radius: 10px;">
-    <h2 style="color: white;">📸 Official Bogey Image Gallery</h2>
-    <p style="color: #D3D3D3;">Scroll through official Bogey images!</p>
-
-    <div class="gallery-container">
-        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-        <img id="galleryImage" src="images/handsup.jpg" alt="Bogey Image" class="gallery-img">
-        <button class="next" onclick="changeSlide(1)">&#10095;</button>
-    </div>
-</section>
-
-<script>
-    // List of Bogey Image Paths
-    const images = [
-        "images/handsup.jpg",
-        "images/concert.webp",
-        "images/hardbattle.webp",
-        "images/jumping-crowd.webp",
-        "images/racks.webp",
-        "images/redcarpet2.jpg",
-        "images/takeover.jpg",
-        "images/HoodLegend.webp",
-        "images/StageBogey.webp",
-        "images/SwoleBogey.webp",
-        "images/Album1.jpg",
-        "images/award.png",
-        "images/Bogeywithhat.webp",
-        "images/bogey-rap-video.png",
-        "images/countingracksbogey.webp",
-        "images/stage-performance.webp",
-        "images/14.png",
-        "images/1.png",
-        "images/2.png",
-        "images/3.png",
-        "images/4.png",
-        "images/5.png",
-        "images/6.png",
-        "images/7.png",
-        "images/8.png",
-        "images/9.png",
-        "images/10.png",
-        "images/11.png",
-        "images/12.png",
-        "images/13.png"
-    ];
-
-    let currentIndex = 0;
-
-    function changeSlide(direction) {
-        currentIndex += direction;
-        if (currentIndex < 0) {
-            currentIndex = images.length - 1;
-        } else if (currentIndex >= images.length) {
-            currentIndex = 0;
-        }
-        document.getElementById("galleryImage").src = images[currentIndex];
-    }
-</script>
-
-
-
-    <section id="roadmap">
-    <h2>🚀 BOGEY'S ROADMAP </h2>
-    <p>From underground battles to global dominance—here’s what’s next:</p>
-    <ul>
-        <li><strong>🎤 Phase 1:</strong> Launch Website, Gain First 1,000 Holders, & Go Viral with Memes.</li>
-        <img src="bogey-nfts.png" alt="Bogey NFT Collection" style="display: block; margin: 20px auto; width: 80%; max-width: 500px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);">
-
-        <li><strong>🎨 Phase 2:</strong> Drop Exclusive BOGEY NFTs & Expand the Brand.</li>   
-        <!-- NFT Collection Section -->
-<section id="nft-collection" style="text-align: center; margin: 40px auto; padding: 30px; background-color: #1a1a1a; border-radius: 10px; max-width: 900px;">
-    <h2 style="color: white; font-size: 28px;">🎨 Own a Piece of Bogey - NFT Collection</h2>
-    <p style="color: #D3D3D3; font-size: 18px;">Exclusive Bogey The Bandit NFTs available now on SolSea!</p>
-
-    <!-- NFT Image -->
-    <img src="BANDIT-001.png" alt="Bogey The Bandit NFT" 
-        style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0px 6px 15px rgba(255, 215, 0, 0.5); margin: 20px auto; display: block;">
-
-    <!-- NFT Buy Button -->
-    <a href="https://solsea.io/c/67c4596c6448d04526d94974" target="_blank" 
-        style="display: inline-block; padding: 12px 25px; font-size: 18px; font-weight: bold; color: white; background: #FFD700; border-radius: 8px; text-decoration: none; transition: 0.3s; box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.7);">
-        🚀 View NFTs on SolSea
-    </a>
-</section>
-
-        <li><strong>🎶 Phase 3:</strong> Top The Charts with THE FIRST EVER Meme Coin Music Album on <strong>Spotify, Apple Music, and Amazon Music.</strong></li>
-        <!-- Looping Video -->
-<section id="bogey-video" style="text-align: center; margin: 40px 0;">
-    <video autoplay loop muted playsinline 
-        style="width: 100%; max-width: 1200px; height: auto; border-radius: 10px; box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.7);">
-        <source src="bogey-loop.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</section>     
-        <li><strong>📺 Phase 4:</strong> Premiere <strong>BOGEY’s Animated Music Video</strong> on YouTube.</li>       
-        <!-- Second Looping Video -->
-<!-- Looping Video - Music Video Bogey -->
-<section id="music-video-bogey" style="text-align: center; margin: 40px 0;">
-    <h2>🎬 Bogey's Music Video</h2>
-    <video autoplay loop muted playsinline 
-        style="width: 100%; max-width: 1200px; height: auto; border-radius: 10px; box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.7);">
-        <source src="music-video-bogey.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <!-- Bogey Music Video Section -->
-<section id="bogey-music-video" style="text-align: center; margin: 50px auto; padding: 20px; background-color: #1a1a1a; border-radius: 10px;">
-    <h2 style="color: #FFD700; font-size: 28px; margin-bottom: 10px;">🎬 OUT NOW! Watch the Official Bogey Music Video</h2>
-    <p style="color: #D3D3D3; font-size: 18px;">Watch the full video on X (Twitter) now!</p>
-
-    <!-- Button linking to the music video on X -->
-    <a href="https://x.com/Bogey_TheBandit/status/1891194441576108176" target="_blank"
-       style="display: inline-block; text-decoration: none;">
-        <img src="x-logo.png" alt="Watch on X" 
-             style="width: 180px; height: auto; border-radius: 8px; box-shadow: 0px 4px 10px rgba(29, 161, 242, 0.5); transition: transform 0.2s ease-in-out;">
-    </a>
-</section>
-
-</section>
-        <li><strong>🤝 Phase 5:</strong> Secure strategic partnerships with **top Key Opinion Leaders (KOLs)** and major advertisers to push Bogey’s brand beyond crypto and into mainstream culture. Through influencer collaborations, sponsorships, and viral marketing campaigns, we will position Bogey as **the most recognized meme coin & brand in the space.**</li>
-        <li><strong>🔥 Phase 6:</strong> Launch **exclusive BOGEY streetwear & collectibles.**</li>
-        <li><strong>💰 Phase 7:</strong> Secure **Major Exchange Listings & Game-Changing Partnerships.**</li>
-        
-        <li><strong>🏆 Phase 8:</strong> Expand into **esports, rap battle collaborations, and Web3 entertainment.**</li>
-
-  <!-- Future Vision & Long-Term Plan Section -->
-<section id="future-vision" style="text-align: center; margin: 50px auto; padding: 40px; background-color: #1a1a1a; border-radius: 10px;">
-    <h2 style="color: white;">🚀 The Future of Bogey The Bandit: AI Hip-Hop & The Infinite Money Glitch</h2>
-    
-    <p style="color: #D3D3D3; font-size: 18px;">
-        Bogey The Bandit isn’t just a token or a rapper—he’s the **first AI-driven hip-hop icon**, bringing
-        **interactive concerts, AI-generated music, and a blockchain-powered fan economy** to the world.
-    </p>
-
-    <h3 style="color: #FFD700;">🎭 Virtual Concerts & The Metaverse Takeover</h3>
-    <p style="color: #D3D3D3; font-size: 16px;">
-        Imagine stepping into a **digital arena** where Bogey isn’t just a performer—you’re part of the show.
-        From **real-time AI freestyle battles** to **interactive fan-driven experiences**, Bogey’s concerts 
-        will revolutionize entertainment in Web3.
-    </p>
-
-    <ul style="list-style-type: none; color: #D3D3D3; text-align: left; max-width: 800px; margin: auto;">
-        <li>🔥 **AI-powered live performances**—real-time freestyles, guest collaborations & insane visuals.</li>
-        <li>🎟 **NFT concert tickets**—VIP access, digital merch, and exclusive collectibles.</li>
-        <li>🌍 **Attend from anywhere**—VR, mobile, desktop, no barriers.</li>
-        <li>🚀 **Rap battles & AI guest appearances**—experience next-level hip-hop culture.</li>
-    </ul>
-
-    <h3 style="color: #FFD700;">💰 The Infinite Money Glitch: Concerts, Token Burns & Scarcity Loop</h3>
-    <p style="color: #D3D3D3; font-size: 16px;">
-        Bogey’s ecosystem is built for **long-term growth**—every concert fuels the next, ensuring constant hype and momentum.
-    </p>
-
-    <ul style="list-style-type: none; color: #D3D3D3; text-align: left; max-width: 800px; margin: auto;">
-        <li>1️⃣ Fans **buy Bogey tokens** to attend virtual concerts.</li>
-        <li>2️⃣ Concert revenue **buys and burns more tokens**, reducing supply.</li>
-        <li>3️⃣ As tokens **burn**, remaining tokens **become rarer and more valuable**.</li>
-        <li>4️⃣ Higher token value **fuels more demand**, bringing in new buyers.</li>
-        <li>🔥 **More tickets = More burns = Higher value = The cycle repeats.**</li>
-    </ul>
-
-    <h3 style="color: #FFD700;">📈 Long-Term Vision: The Rise of The AI Hip-Hop Empire</h3>
-    <p style="color: #D3D3D3; font-size: 16px;">
-        Bogey The Bandit **isn’t just a musician—he’s a movement**. We’re pushing AI rap into every part of digital culture.
-    </p>
-
-    <ul style="list-style-type: none; color: #D3D3D3; text-align: left; max-width: 800px; margin: auto;">
-        <li>🎬 **3D Virtual Music Videos** – Interactive, first-person music experiences.</li>
-        <li>🎮 **Bogey in Web3 Gaming** – Playable AI rap icon in battle arenas.</li>
-        <li>🤖 **AI-Generated Music Evolution** – Constantly evolving AI-powered rap.</li>
-        <li>🌐 **Decentralized Music Economy** – Own digital assets tied to Bogey’s legacy.</li>
-    </ul>
-
-    <h3 style="color: #FFD700;">🏆 The End Goal: Making Bogey The GOAT of AI Hip-Hop</h3>
-    <p style="color: #D3D3D3; font-size: 16px;">
-        This is about more than just a career—it’s about **creating history**. We’re making **Bogey the first true AI music icon**, a name that will be remembered as the leader of a new wave in hip-hop and AI entertainment.
-    </p>
-
-    <p style="color: #FFD700; font-size: 20px; font-weight: bold;">
-        💎 The bigger Bogey gets, the more valuable every token becomes.  
-        🚀 Join the movement. Secure your spot in history.  
-    </p>
-</section>
-
-        <!-- Looping Video - Bogey Award -->
-<section id="bogey-award-video" style="text-align: center; margin: 40px 0;">
-    <h2>🎤 Witness the Rise of a Legend!</h2>
-<p style="color: #D3D3D3; font-size: 18px;">
-</p>
-    <video autoplay loop muted playsinline 
-        style="width: 100%; max-width: 1200px; height: auto; border-radius: 10px; box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.7);">
-        <source src="award-bogey.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</section>
-
-
-    <p>🚀 **This isn’t just a coin—it’s a movement.** The rap game’s first crypto icon is just getting started.</p>
-</section>
-
-<!-- Tokenomics Section -->
-<section id="tokenomics" style="text-align: center; margin: 50px auto; padding: 20px; background-color: #1a1a1a; border-radius: 10px;">
-    <h2 style="color: white;">🚀 Tokenomics</h2>
-
-    <p><strong>🔒 Liquidity will be locked</strong> to guarantee transparency and protect investors from any risk of liquidity removal.</p>
-
-    <h3 style="color: #FFD700;">🔥 Token Burn Mechanism</h3>
-    
-    <p>To further enhance <strong>scarcity and long-term value</strong>, Bogey The Bandit introduces a <strong>self-sustaining burn system</strong>:</p>
-    
-    <p><strong>💰 100% of the revenue</strong> from <strong>music streams, merchandise sales, and brand deals</strong> will be used to <strong>buy and burn</strong> tokens from the open market.</p>
-    
-    <p><strong>🔥 This process will continue until 25% of the total supply has been permanently removed,</strong> reducing circulating supply and increasing scarcity over time.</p>
-
-    <p>This ensures that as <strong>Bogey’s music and brand grow,</strong> so does the strength of the token.</p>
-
-    <p><strong>🚀 No presale, no team unlocks—just a fair launch backed by real revenue and long-term value.</strong></p>
-</section>
-
-
-
+            <div class="coin-address">
+                <h2>💰 Coin Address:</h2>
+                <div class="address-container">
+                    <p id="coin-address">4yCcLXswoYbicYLZDpTaGQWcPNUy2yNwu1MhPXNbY52u</p>
+                    <button class="copy-btn" onclick="copyAddress()">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v11a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <a href="https://dexscreener.com/" target="_blank" class="floating-buy">🛒 Buy BOGEY Now</a>
+    <section>
+        <div class="container">
+            <h2 class="heading-gradient text-center">🎵 Bogey's Latest Tracks</h2>
+            <div class="music-player">
+                <h2 class="text-2xl font-bold mb-4">Latest Tracks</h2>
+                <div class="space-y-4">
+                    <div class="track">
+                        <span class="track-title">Rug Pull</span>
+                        <div class="player-controls">
+                            <div class="progress-container" id="progress-container">
+                                <div class="progress-bar" id="progress-bar"></div>
+                            </div>
+                            <div class="time-display">
+                                <span id="current-time">0:00</span>
+                                <span id="duration">0:00</span>
+                            </div>
+                            <div class="controls-row">
+                                <div class="playback-controls">
+                                    <button class="control-button shuffle-btn" onclick="toggleShuffle()">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                        </svg>
+                                    </button>
+                                    <button class="control-button prev-btn" onclick="playPrevious()">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                        </svg>
+                                    </button>
+                                    <button class="control-button play-button" onclick="togglePlay()">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                        </svg>
+                                    </button>
+                                    <button class="control-button next-btn" onclick="playNext()">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="volume-control">
+                                    <button class="control-button" onclick="toggleMute()">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 012.828 2.828" />
+                                        </svg>
+                                    </button>
+                                    <div class="volume-slider" id="volume-slider">
+                                        <div class="volume-progress" id="volume-progress"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <audio id="audio-player" class="w-full" controls style="display: none;">
+                            <source src="audio/Rug-Pull.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="track-list">
+                        <div class="track-list-header">
+                            <span class="track-number">#</span>
+                            <span class="track-name">Title</span>
+                            <span class="track-duration">Duration</span>
+                        </div>
+                        <div class="track-items" id="track-list">
+                            <!-- Track items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</body>
-</html>
+    <section>
+        <div class="container">
+            <h2 class="heading-gradient text-center">🎵 Listen to Bogey on Streaming Platforms</h2>
+            <div class="platforms">
+                <a href="https://music.youtube.com/search?q=bogey+the+bandit" target="_blank">
+                    <img src="images/youtube-logo.avif" alt="YouTube Music">
+                </a>
+                <a href="https://open.spotify.com/artist/7vF2a3zhQ6rC3TEm6IdmUt" target="_blank">
+                    <img src="images/spotify-logo.png" alt="Spotify">
+                </a>
+                <a href="https://music.apple.com/us/artist/bogey-the-bandit/1796362044" target="_blank">
+                    <img src="images/Apple_Music_icon.svg.png" alt="Apple Music">
+                </a>
+            </div>
+        </div>
+    </section>
 
-<script>
-    // Set the launch date: February 16, 2024, at 6:00 PM CST (Converted to UTC: Feb 17, 2024, 12:00 AM UTC)
-    const launchDate = new Date("Feb 16, 2024 18:00:00 CST").getTime();
+    <section>
+        <div class="container">
+            <h2 class="heading-gradient text-center">🗺️ Bogey's Roadmap</h2>
+            <div class="roadmap-container">
+                <div class="roadmap-slide active">
+                    <div class="roadmap-phase">
+                        <span class="phase-number">1</span>
+                        <h3>Foundation</h3>
+                    </div>
+                    <div class="roadmap-content">
+                        <ul>
+                            <li>Launch of Bogey The Bandit Token</li>
+                            <li>Website Development</li>
+                            <li>Community Building</li>
+                            <li>Initial Marketing Campaign</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-slide">
+                    <div class="roadmap-phase">
+                        <span class="phase-number">2</span>
+                        <h3>Growth</h3>
+                    </div>
+                    <div class="roadmap-content">
+                        <ul>
+                            <li>CEX Listings</li>
+                            <li>Partnership Development</li>
+                            <li>Enhanced Marketing</li>
+                            <li>Community Events</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-slide">
+                    <div class="roadmap-phase">
+                        <span class="phase-number">3</span>
+                        <h3>Expansion</h3>
+                    </div>
+                    <div class="roadmap-content">
+                        <ul>
+                            <li>NFT Collection Launch</li>
+                            <li>Merchandise Store</li>
+                            <li>Staking Platform</li>
+                            <li>Mobile App Development</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-slide">
+                    <div class="roadmap-phase">
+                        <span class="phase-number">4</span>
+                        <h3>Innovation</h3>
+                    </div>
+                    <div class="roadmap-content">
+                        <ul>
+                            <li>Metaverse Integration</li>
+                            <li>Cross-Chain Expansion</li>
+                            <li>Gaming Partnerships</li>
+                            <li>Global Tour Planning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="roadmap-navigation">
+                <button class="roadmap-nav" onclick="changeRoadmapSlide(-1)">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <div class="roadmap-dots"></div>
+                <button class="roadmap-nav" onclick="changeRoadmapSlide(1)">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
 
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const timeLeft = launchDate - now;
+    <section>
+        <div class="container">
+            <h2 class="heading-gradient text-center">📸 Bogey's Gallery</h2>
+            <div class="slideshow-container">
+                <div class="slideshow-wrapper">
+                    <div class="slide">
+                        <img src="images/1.png" alt="Bogey Gallery Image 1">
+                    </div>
+                    <div class="slide">
+                        <img src="images/2.png" alt="Bogey Gallery Image 2">
+                    </div>
+                    <div class="slide">
+                        <img src="images/3.png" alt="Bogey Gallery Image 3">
+                    </div>
+                    <div class="slide">
+                        <img src="images/4.png" alt="Bogey Gallery Image 4">
+                    </div>
+                    <div class="slide">
+                        <img src="images/5.png" alt="Bogey Gallery Image 5">
+                    </div>
+                    <div class="slide">
+                        <img src="images/6.png" alt="Bogey Gallery Image 6">
+                    </div>
+                    <div class="slide">
+                        <img src="images/7.png" alt="Bogey Gallery Image 7">
+                    </div>
+                    <div class="slide">
+                        <img src="images/8.png" alt="Bogey Gallery Image 8">
+                    </div>
+                    <div class="slide">
+                        <img src="images/9.png" alt="Bogey Gallery Image 9">
+                    </div>
+                    <div class="slide">
+                        <img src="images/10.png" alt="Bogey Gallery Image 10">
+                    </div>
+                    <div class="slide">
+                        <img src="images/11.png" alt="Bogey Gallery Image 11">
+                    </div>
+                    <div class="slide">
+                        <img src="images/12.png" alt="Bogey Gallery Image 12">
+                    </div>
+                    <div class="slide">
+                        <img src="images/13.png" alt="Bogey Gallery Image 13">
+                    </div>
+                    <div class="slide">
+                        <img src="images/14.png" alt="Bogey Gallery Image 14">
+                    </div>
+                </div>
+                <button class="slideshow-nav prev" onclick="changeSlide(-1)">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button class="slideshow-nav next" onclick="changeSlide(1)">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+                <div class="slideshow-dots"></div>
+            </div>
+        </div>
+    </section>
 
-        if (timeLeft <= 0) {
-            document.getElementById("countdown").innerHTML = "🚀 WE ARE LIVE! 🎤🔥";
-            return;
+    <!-- NFT Section -->
+    <section class="nft-section">
+        <div class="container">
+            <h2 class="heading-gradient text-center">🎨 Bogey's Bandits NFTs</h2>
+            <div class="nft-slideshow">
+                <div class="nft-slide active">
+                    <img src="images/nfts/BANDIT-001.png" alt="BANDIT-001">
+                    <div class="nft-info">
+                        <h3>BANDIT-001</h3>
+                        <p>Bogey's Bandits Collection</p>
+                    </div>
+                </div>
+                <div class="nft-slide">
+                    <img src="images/nfts/BANDIT-002.png" alt="BANDIT-002">
+                    <div class="nft-info">
+                        <h3>BANDIT-002</h3>
+                        <p>Bogey's Bandits Collection</p>
+                    </div>
+                </div>
+                <div class="nft-slide">
+                    <img src="images/nfts/BANDIT-003.png" alt="BANDIT-003">
+                    <div class="nft-info">
+                        <h3>BANDIT-003</h3>
+                        <p>Bogey's Bandits Collection</p>
+                    </div>
+                </div>
+                <div class="nft-slide">
+                    <img src="images/nfts/BANDIT-004.png" alt="BANDIT-004">
+                    <div class="nft-info">
+                        <h3>BANDIT-004</h3>
+                        <p>Bogey's Bandits Collection</p>
+                    </div>
+                </div>
+                <div class="nft-slide">
+                    <img src="images/nfts/BANDIT-005.png" alt="BANDIT-005">
+                    <div class="nft-info">
+                        <h3>BANDIT-005</h3>
+                        <p>Bogey's Bandits Collection</p>
+                    </div>
+                </div>
+                <div class="nft-slide">
+                    <img src="images/nfts/BANDIT-006.png" alt="BANDIT-006">
+                    <div class="nft-info">
+                        <h3>BANDIT-006</h3>
+                        <p>Bogey's Bandits Collection</p>
+                    </div>
+                </div>
+                <div class="nft-slide">
+                    <img src="images/nfts/BANDIT-007.png" alt="BANDIT-007">
+                    <div class="nft-info">
+                        <h3>BANDIT-007</h3>
+                        <p>Bogey's Bandits Collection</p>
+                    </div>
+                </div>
+                <div class="nft-nav">
+                    <button onclick="changeNFTSlide(-1)">❮</button>
+                    <button onclick="changeNFTSlide(1)">❯</button>
+                </div>
+                <div class="nft-dots"></div>
+            </div>
+            <div class="nft-cta">
+                <a href="https://solsea.io/c/67c4596c6448d04526d94974" target="_blank" class="btn-primary">View Collection on SolSea</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NFT Modal -->
+    <div id="nft-modal" class="nft-modal">
+        <div class="nft-modal-content">
+            <span class="nft-modal-close" onclick="closeNFTModal()">&times;</span>
+            <div class="nft-modal-body">
+                <button class="nft-modal-nav prev" onclick="changeNFTSlide(-1)">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <div class="nft-modal-image-container">
+                    <img id="nft-modal-image" src="" alt="NFT Image">
+                </div>
+                <button class="nft-modal-nav next" onclick="changeNFTSlide(1)">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+            <div class="nft-modal-info">
+                <h3 id="nft-modal-title"></h3>
+                <p id="nft-modal-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <section id="community-section">
+        <div class="container">
+            <h2 class="heading-gradient text-center">Join Bogey's Community</h2>
+            <div class="social-links">
+                <a href="https://discord.gg/yPs4x5H8RK" target="_blank">
+                    <img src="images/discord-logo.png" alt="Discord">
+                </a>
+                <a href="https://x.com/Bogey_TheBandit" target="_blank">
+                    <img src="images/x-logo.png" alt="X (Twitter)">
+                </a>
+                <a href="https://t.me/bogeythebandit" target="_blank">
+                    <img src="images/Telegram_2019_Logo.svg.png" alt="Telegram">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://dexscreener.com/solana/fhgpmy1odxcdvcwohzt2tmhuzhswq74fyeqt9kevrkbm" target="_blank" class="btn-primary floating-buy">
+        🛒 Buy BOGEY Now
+    </a>
+
+    <script>
+        const tracks = [
+            { title: 'Outlaw Bounce', src: 'audio/Outlaw Bounce.mp3' },
+            { title: 'Ride or Die', src: 'audio/Ride or Die.mp3' },
+            { title: 'Rug Pull', src: 'audio/Rug-Pull.mp3' },
+            { title: 'Straight Savage', src: 'audio/Straight Savage.mp3' },
+            { title: 'The Takeover', src: 'audio/The Takeover.mp3' },
+            { title: 'Too Cold', src: 'audio/Too Cold.mp3' },
+            { title: 'Trash Panda', src: 'audio/Trash Panda.mp3' },
+            { title: 'Used To Be', src: 'audio/Used To Be.mp3' },
+            { title: 'Out The Gutter', src: 'audio/_out-the-gutter.mp3' },
+            { title: 'All Night', src: 'audio/All Night_.mp3' },
+            { title: 'Apply Pressure', src: 'audio/apply-pressure.mp3' },
+            { title: 'Big Bogey in Little Tokyo', src: 'audio/Big Bogey in Little Tokyo.mp3' },
+            { title: 'Bogey in a Bentley', src: 'audio/Bogey in a Bentley.mp3' },
+            { title: 'Built Different', src: 'audio/Built Different.mp3' },
+            { title: 'Buried Alive', src: 'audio/Buried Alive.mp3' },
+            { title: "Can't Catch Me", src: 'audio/cant-catch-me.mp3' },
+            { title: 'Empty Eyes', src: 'audio/Empty Eyes.mp3' },
+            { title: 'Glitch God', src: 'audio/Glitch God.mp3' },
+            { title: 'Going Rabid (V2)', src: 'audio/Going Rabid (V2).mp3' },
+            { title: 'Going Rabid', src: 'audio/Going Rabid.mp3' },
+            { title: 'Iron Will', src: 'audio/Iron Will.mp3' },
+            { title: 'Late Night Drive', src: 'audio/Late Night Drive.mp3' },
+            { title: 'Late Night Temptation', src: 'audio/Late Night Temptation.mp3' },
+            { title: 'Legendary', src: 'audio/Legendary.mp3' },
+            { title: 'Midnight Calls', src: 'audio/Midnight Calls.mp3' },
+            { title: 'Moonlight & Hennessy', src: 'audio/Moonlight & Hennessy.mp3' },
+            { title: 'Neon Nights', src: 'audio/Neon Nights (1).mp3' },
+            { title: 'No Handouts', src: 'audio/No Handouts.mp3' },
+            { title: 'No Mercy', src: 'audio/No Mercy.mp3' },
+            { title: 'No Strings', src: 'audio/No Strings.mp3' },
+            { title: 'Off The Chain', src: 'audio/off-the-chain.mp3' }
+        ];
+
+        let currentTrackIndex = 0;
+        let isShuffled = false;
+        let shuffledTracks = [];
+        const audioPlayer = document.getElementById('audio-player');
+        const trackTitle = document.querySelector('.track-title');
+        const playBtn = document.querySelector('.play-button');
+        const shuffleBtn = document.querySelector('.shuffle-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const progressContainer = document.getElementById('progress-container');
+        const currentTimeDisplay = document.getElementById('current-time');
+        const durationDisplay = document.getElementById('duration');
+        const volumeSlider = document.getElementById('volume-slider');
+        const volumeProgress = document.getElementById('volume-progress');
+        let isMuted = false;
+
+        function updateTrackInfo() {
+            const currentTrack = isShuffled ? shuffledTracks[currentTrackIndex] : tracks[currentTrackIndex];
+            trackTitle.textContent = currentTrack.title;
+            audioPlayer.src = currentTrack.src;
+            updateTrackList();
         }
 
-        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
 
-        document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
+        function updateProgress() {
+            const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+            currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
+        }
 
-    // Update the countdown every second
-    setInterval(updateCountdown, 1000);
-    updateCountdown(); // Initial call to avoid 1s delay
-</script>
+        function updateVolume() {
+            const volume = audioPlayer.volume;
+            volumeProgress.style.width = `${volume * 100}%`;
+        }
+
+        function setProgress(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audioPlayer.duration;
+            audioPlayer.currentTime = (clickX / width) * duration;
+        }
+
+        function setVolume(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const volume = clickX / width;
+            audioPlayer.volume = volume;
+            updateVolume();
+        }
+
+        function toggleMute() {
+            isMuted = !isMuted;
+            audioPlayer.muted = isMuted;
+            const muteButton = document.querySelector('.volume-control .control-button');
+            muteButton.innerHTML = isMuted ? 
+                '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 012.828 2.828" /></svg>' :
+                '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 012.828 2.828" /></svg>';
+        }
+
+        function togglePlay() {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playBtn.innerHTML = '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>';
+            } else {
+                audioPlayer.pause();
+                playBtn.innerHTML = '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /></svg>';
+            }
+        }
+
+        function playNext() {
+            currentTrackIndex = (currentTrackIndex + 1) % (isShuffled ? shuffledTracks.length : tracks.length);
+            updateTrackInfo();
+            if (!audioPlayer.paused) audioPlayer.play();
+        }
+
+        function playPrevious() {
+            currentTrackIndex = (currentTrackIndex - 1 + (isShuffled ? shuffledTracks.length : tracks.length)) % (isShuffled ? shuffledTracks.length : tracks.length);
+            updateTrackInfo();
+            if (!audioPlayer.paused) audioPlayer.play();
+        }
+
+        function toggleShuffle() {
+            isShuffled = !isShuffled;
+            if (isShuffled) {
+                shuffledTracks = [...tracks].sort(() => Math.random() - 0.5);
+                currentTrackIndex = shuffledTracks.findIndex(track => track.src === audioPlayer.src);
+            }
+            shuffleBtn.classList.toggle('active');
+            createTrackList();
+        }
+
+        function createTrackList() {
+            const trackList = document.getElementById('track-list');
+            trackList.innerHTML = '';
+            
+            const currentTracks = isShuffled ? shuffledTracks : tracks;
+            
+            currentTracks.forEach((track, index) => {
+                const trackItem = document.createElement('div');
+                trackItem.className = `track-item ${index === currentTrackIndex ? 'active' : ''}`;
+                
+                // Create audio element to get duration
+                const tempAudio = new Audio(track.src);
+                tempAudio.addEventListener('loadedmetadata', function() {
+                    const durationSpan = trackItem.querySelector('.track-duration');
+                    if (durationSpan) {
+                        durationSpan.textContent = formatTime(tempAudio.duration);
+                    }
+                });
+                
+                trackItem.innerHTML = `
+                    <span class="track-number">${index + 1}</span>
+                    <span class="track-name">${track.title}</span>
+                    <span class="track-duration">0:00</span>
+                `;
+                
+                trackItem.onclick = () => {
+                    currentTrackIndex = index;
+                    updateTrackInfo();
+                    if (!audioPlayer.paused) audioPlayer.play();
+                    updateTrackList();
+                };
+                
+                trackList.appendChild(trackItem);
+            });
+        }
+
+        function updateTrackList() {
+            const trackItems = document.querySelectorAll('.track-item');
+            trackItems.forEach((item, index) => {
+                item.classList.toggle('active', index === currentTrackIndex);
+            });
+        }
+
+        audioPlayer.addEventListener('timeupdate', updateProgress);
+        audioPlayer.addEventListener('loadedmetadata', () => {
+            durationDisplay.textContent = formatTime(audioPlayer.duration);
+        });
+        progressContainer.addEventListener('click', setProgress);
+        volumeSlider.addEventListener('click', setVolume);
+        audioPlayer.addEventListener('volumechange', updateVolume);
+
+        // Slideshow functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const wrapper = document.querySelector('.slideshow-wrapper');
+        const dotsContainer = document.querySelector('.slideshow-dots');
+
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.onclick = () => goToSlide(index);
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlideshow() {
+            // Update active states
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+
+            // Calculate the offset to center the active slide
+            const slideWidth = 320; // 300px slide + 20px gap
+            const offset = -(currentSlide * slideWidth) + (wrapper.offsetWidth / 2) - (600 / 2);
+            wrapper.style.transform = `translateX(${offset}px)`;
+        }
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            updateSlideshow();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlideshow();
+        }
+
+        // Initialize slideshow
+        updateSlideshow();
+
+        // Auto-play slideshow
+        setInterval(() => changeSlide(1), 5000);
+
+        // Add this after the existing script tag starts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize track list
+            createTrackList();
+            
+            // Add event listener for track ending
+            audioPlayer.addEventListener('ended', function() {
+                playNext();
+            });
+        });
+
+        let currentRoadmapSlide = 0;
+        const roadmapSlides = document.querySelectorAll('.roadmap-slide');
+        const roadmapWrapper = document.querySelector('.roadmap-wrapper');
+        const roadmapDots = document.querySelector('.roadmap-dots');
+
+        // Create dots for roadmap slides
+        roadmapSlides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.onclick = () => goToRoadmapSlide(index);
+            roadmapDots.appendChild(dot);
+        });
+
+        function changeRoadmapSlide(direction) {
+            const slides = document.querySelectorAll('.roadmap-slide');
+            const dots = document.querySelectorAll('.roadmap-dots .dot');
+            const currentSlide = document.querySelector('.roadmap-slide.active');
+            const currentIndex = Array.from(slides).indexOf(currentSlide);
+            
+            // Remove active class from current slide
+            currentSlide.classList.remove('active');
+            dots[currentIndex].classList.remove('active');
+            
+            // Calculate new index
+            const newIndex = (currentIndex + direction + slides.length) % slides.length;
+            
+            // Add active class to new slide
+            slides[newIndex].classList.add('active');
+            dots[newIndex].classList.add('active');
+        }
+
+        // NFT Slideshow functionality
+        let currentNFTSlide = 0;
+        const nftSlides = document.querySelectorAll('.nft-slide');
+        const nftDotsContainer = document.querySelector('.nft-dots');
+
+        // Create dots for NFT slides
+        nftSlides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.onclick = () => goToNFTSlide(index);
+            nftDotsContainer.appendChild(dot);
+        });
+
+        const nftDots = document.querySelectorAll('.nft-dots .dot');
+
+        function updateNFTSlideshow() {
+            // Update active states
+            nftSlides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentNFTSlide);
+            });
+
+            // Update dots
+            nftDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentNFTSlide);
+            });
+        }
+
+        function changeNFTSlide(direction) {
+            currentNFTSlide = (currentNFTSlide + direction + nftSlides.length) % nftSlides.length;
+            updateNFTSlideshow();
+        }
+
+        function goToNFTSlide(index) {
+            currentNFTSlide = index;
+            updateNFTSlideshow();
+        }
+
+        // Initialize NFT slideshow
+        updateNFTSlideshow();
+
+        // Add event listeners for navigation buttons
+        document.querySelector('.nft-nav button:first-child').addEventListener('click', () => changeNFTSlide(-1));
+        document.querySelector('.nft-nav button:last-child').addEventListener('click', () => changeNFTSlide(1));
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                changeNFTSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeNFTSlide(1);
+            }
+        });
+
+        function copyAddress() {
+            const address = document.getElementById('coin-address').textContent;
+            navigator.clipboard.writeText(address).then(() => {
+                const copyBtn = document.querySelector('.copy-btn');
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html> 
