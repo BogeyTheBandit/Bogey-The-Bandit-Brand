@@ -1280,68 +1280,72 @@
             <h2 class="heading-gradient text-center">🎵 Bogey's Latest Tracks</h2>
             <div class="music-player">
                 <h2 class="text-2xl font-bold mb-4">Latest Tracks</h2>
-                <div class="space-y-4">
-                    <div class="track">
-                        <span class="track-title">Rug Pull</span>
-                        <div class="player-controls">
-                            <div class="progress-container" id="progress-container">
-                                <div class="progress-bar" id="progress-bar"></div>
-                            </div>
-                            <div class="time-display">
-                                <span id="current-time">0:00</span>
-                                <span id="duration">0:00</span>
-                            </div>
-                            <div class="controls-row">
-                                <div class="playback-controls">
-                                    <button class="control-button shuffle-btn" onclick="toggleShuffle()">
-                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                        </svg>
-                                    </button>
-                                    <button class="control-button prev-btn" onclick="playPrevious()">
-                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                                        </svg>
-                                    </button>
-                                    <button class="control-button play-button" onclick="togglePlay()">
-                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                        </svg>
-                                    </button>
-                                    <button class="control-button next-btn" onclick="playNext()">
-                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="volume-control">
-                                    <button class="control-button" onclick="toggleMute()">
-                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 012.828 2.828" />
-                                        </svg>
-                                    </button>
-                                    <div class="volume-slider" id="volume-slider">
-                                        <div class="volume-progress" id="volume-progress"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <audio id="audio-player" class="w-full" controls style="display: none;">
-                            <source src="Rug-Pull.mp3" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
+                <div class="song-list">
+                    <div class="song-item" onclick="playSong('Rug-Pull.mp3')">
+                        <span class="song-title">Rug Pull</span>
+                        <span class="play-icon">▶</span>
                     </div>
-                    <div class="track-list">
-                        <div class="track-list-header">
-                            <span class="track-number">#</span>
-                            <span class="track-name">Title</span>
-                            <span class="track-duration">Duration</span>
-                        </div>
-                        <div class="track-items" id="track-list">
-                            <!-- Track items will be populated by JavaScript -->
-                        </div>
+                    <div class="song-item" onclick="playSong('Built Different.mp3')">
+                        <span class="song-title">Built Different</span>
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="song-item" onclick="playSong('No Handouts.mp3')">
+                        <span class="song-title">No Handouts</span>
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="song-item" onclick="playSong('No Strings.mp3')">
+                        <span class="song-title">No Strings</span>
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="song-item" onclick="playSong('Outlaw Bounce.mp3')">
+                        <span class="song-title">Outlaw Bounce</span>
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="song-item" onclick="playSong('Ride or Die.mp3')">
+                        <span class="song-title">Ride or Die</span>
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="song-item" onclick="playSong('Straight Savage.mp3')">
+                        <span class="song-title">Straight Savage</span>
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="song-item" onclick="playSong('The Takeover.mp3')">
+                        <span class="song-title">The Takeover</span>
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="song-item" onclick="playSong('Too Cold.mp3')">
+                        <span class="song-title">Too Cold</span>
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="song-item" onclick="playSong('Trash Panda.mp3')">
+                        <span class="song-title">Trash Panda</span>
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="song-item" onclick="playSong('_out-the-gutter.mp3')">
+                        <span class="song-title">Out the Gutter</span>
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="song-item" onclick="playSong('apply-pressure.mp3')">
+                        <span class="song-title">Apply Pressure</span>
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="song-item" onclick="playSong('cant-catch-me.mp3')">
+                        <span class="song-title">Can't Catch Me</span>
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="song-item" onclick="playSong('off-the-chain.mp3')">
+                        <span class="song-title">Off the Chain</span>
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="song-item" onclick="playSong('out-the-gutter.mp3')">
+                        <span class="song-title">Out the Gutter</span>
+                        <span class="play-icon">▶</span>
                     </div>
                 </div>
+                <audio id="audio-player" class="w-full" controls style="display: none;">
+                    <source src="Rug-Pull.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         </div>
     </section>
@@ -1953,6 +1957,13 @@
                     copyBtn.classList.remove('copied');
                 }, 2000);
             });
+        }
+
+        function playSong(songPath) {
+            const audioPlayer = document.getElementById('audio-player');
+            audioPlayer.src = songPath;
+            audioPlayer.style.display = 'block';
+            audioPlayer.play();
         }
     </script>
 </body>
