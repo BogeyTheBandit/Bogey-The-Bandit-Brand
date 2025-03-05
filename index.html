@@ -244,43 +244,113 @@ function copyAddress() {
 
 <!-- Music Player -->
 <div style="text-align: center; margin-top: 20px;">
-    <h3>🎵 Listen to BOGEY</h3>
-    <p>Check out some of the hottest tracks straight from the underground!</p>
+    <h3 style="color: #FFD700; font-size: 24px; margin-bottom: 10px;">🎵 Listen to BOGEY</h3>
+    <p style="color: #888; margin-bottom: 20px;">Check out some of the hottest tracks straight from the underground!</p>
     
-    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background: #1a1a1a; border-radius: 10px;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 25px; background: linear-gradient(145deg, #1a1a1a, #222); border-radius: 15px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
         <!-- Current Song Info -->
-        <div id="current-song" style="margin-bottom: 15px; font-weight: bold; color: #FFD700; font-size: 18px;"></div>
+        <div id="current-song" style="margin-bottom: 20px; font-weight: bold; color: #FFD700; font-size: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.2);"></div>
         
         <!-- Progress Bar -->
-        <div style="width: 100%; height: 4px; background: #333; border-radius: 2px; margin-bottom: 10px;">
-            <div id="progress-bar" style="width: 0%; height: 100%; background: #FFD700; border-radius: 2px;"></div>
+        <div style="width: 100%; height: 6px; background: #333; border-radius: 3px; margin-bottom: 10px; cursor: pointer;" onclick="seekTrack(event)">
+            <div id="progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #FFD700, #FFA500); border-radius: 3px; transition: width 0.1s linear;"></div>
         </div>
         
         <!-- Time Display -->
-        <div style="display: flex; justify-content: space-between; color: #888; font-size: 12px; margin-bottom: 15px;">
+        <div style="display: flex; justify-content: space-between; color: #888; font-size: 14px; margin-bottom: 20px;">
             <span id="current-time">0:00</span>
             <span id="duration">0:00</span>
         </div>
 
         <!-- Controls -->
-        <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px;">
-            <button onclick="previousTrack()" style="background: none; border: none; cursor: pointer; font-size: 24px;">⏮️</button>
-            <button onclick="togglePlay()" id="play-pause" style="background: none; border: none; cursor: pointer; font-size: 32px;">⏯️</button>
-            <button onclick="nextTrack()" style="background: none; border: none; cursor: pointer; font-size: 24px;">⏭️</button>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 25px;">
+            <button onclick="previousTrack()" class="player-btn" style="background: none; border: none; cursor: pointer; font-size: 28px; color: #FFD700; transition: transform 0.2s, color 0.2s; padding: 10px; border-radius: 50%;">⏮️</button>
+            <button onclick="togglePlay()" id="play-pause" class="player-btn" style="background: none; border: none; cursor: pointer; font-size: 40px; color: #FFD700; transition: transform 0.2s, color 0.2s; padding: 15px; border-radius: 50%;">⏯️</button>
+            <button onclick="nextTrack()" class="player-btn" style="background: none; border: none; cursor: pointer; font-size: 28px; color: #FFD700; transition: transform 0.2s, color 0.2s; padding: 10px; border-radius: 50%;">⏭️</button>
         </div>
 
         <!-- Volume Control -->
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-            <span style="color: #888;">🔊</span>
-            <input type="range" id="volume" min="0" max="100" value="100" style="width: 100px;">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
+            <span style="color: #FFD700; font-size: 20px;">🔊</span>
+            <input type="range" id="volume" min="0" max="100" value="100" style="width: 150px; height: 4px; -webkit-appearance: none; background: #333; border-radius: 2px; outline: none;">
         </div>
 
         <!-- Playlist -->
-        <div style="max-height: 200px; overflow-y: auto; background: #222; border-radius: 5px; padding: 10px;">
+        <div style="max-height: 250px; overflow-y: auto; background: #222; border-radius: 10px; padding: 15px; margin-top: 20px;">
             <div id="playlist" style="text-align: left;"></div>
         </div>
     </div>
 </div>
+
+<style>
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FFD700;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FFA500;
+}
+
+/* Custom Range Input */
+input[type="range"] {
+    -webkit-appearance: none;
+    background: #333;
+    height: 4px;
+    border-radius: 2px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #FFD700;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Player Button Hover Effects */
+.player-btn:hover {
+    transform: scale(1.1);
+    color: #FFA500 !important;
+}
+
+/* Playlist Item Styles */
+.playlist-item {
+    padding: 12px 15px;
+    margin: 5px 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.playlist-item:hover {
+    background: #333;
+    transform: translateX(5px);
+}
+
+.playlist-item.active {
+    background: linear-gradient(90deg, #333, #222);
+    color: #FFD700;
+    border-left: 4px solid #FFD700;
+}
+</style>
 
 <script>
 const tracks = [
@@ -293,9 +363,9 @@ const tracks = [
     { title: "🔥 Apply Pressure", src: "apply-pressure.mp3" },
     { title: "🚀 Can't Catch Me", src: "cant-catch-me.mp3" },
     { title: "🏆 Out the Gutter", src: "out-the-gutter.mp3" },
-    { title: "👁️ Empty Eyes", src: "Empty Eyes.mp3" },
+    { title: "��️ Empty Eyes", src: "Empty Eyes.mp3" },
     { title: "🔄 Outlaw Bounce", src: "Outlaw Bounce.mp3" },
-    { title: "�� Ride or Die", src: "Ride or Die.mp3" },
+    { title: " Ride or Die", src: "Ride or Die.mp3" },
     { title: "⚡ Iron Will", src: "Iron Will.mp3" },
     { title: "🌙 Neon Nights", src: "Neon Nights (1).mp3" },
     { title: "⏳ Used To Be", src: "Used To Be.mp3" },
@@ -308,12 +378,12 @@ const tracks = [
     { title: "⚰️ Buried Alive", src: "Buried Alive.mp3" },
     { title: " Legendary", src: "Legendary.mp3" },
     { title: "👑 The Takeover", src: "The Takeover.mp3" },
-    { title: "🦝 Going Rabid", src: "Going Rabid (V2).mp3" },
+    { title: "�� Going Rabid", src: "Going Rabid (V2).mp3" },
     { title: "🦝 Going Rabid (Original)", src: "Going Rabid.mp3" },
     { title: "⚡ Straight Savage", src: "Straight Savage.mp3" },
     { title: "⚔️ No Mercy", src: "No Mercy.mp3" },
     { title: "❄️ Too Cold", src: "Too Cold.mp3" },
-    { title: "🌙 All Night", src: "All Night_.mp3" },
+    { title: "�� All Night", src: "All Night_.mp3" },
     { title: "🌙 Midnight Calls", src: "Midnight Calls.mp3" }
 ];
 
@@ -352,11 +422,8 @@ function updatePlaylist() {
     for (let i = 0; i < tracks.length; i++) {
         const track = tracks[i];
         const div = document.createElement('div');
-        div.style.padding = '8px';
-        div.style.cursor = 'pointer';
+        div.className = 'playlist-item' + (i === currentTrack ? ' active' : '');
         div.style.color = i === currentTrack ? '#FFD700' : '#fff';
-        div.style.backgroundColor = i === currentTrack ? '#333' : 'transparent';
-        div.style.borderRadius = '4px';
         div.textContent = track.title;
         div.onclick = () => {
             currentTrack = i;
@@ -394,6 +461,14 @@ function togglePlay() {
     }
 }
 
+// Add seek functionality
+function seekTrack(event) {
+    const progressBar = document.querySelector('div[style*="background: #333"]');
+    const rect = progressBar.getBoundingClientRect();
+    const pos = (event.clientX - rect.left) / progressBar.offsetWidth;
+    audioPlayer.currentTime = pos * audioPlayer.duration;
+}
+
 // Volume control
 volumeControl.addEventListener('input', (e) => {
     audioPlayer.volume = e.target.value / 100;
@@ -405,21 +480,6 @@ updatePlayer();
 // Auto-play next track when current track ends
 audioPlayer.addEventListener('ended', nextTrack);
 </script>
-
-<div style="text-align: center; margin: 20px 0;">
-    <div style="position: relative; max-width: 800px; margin: 0 auto;">
-        <img id="galleryImage" src="images/handsup.jpg" alt="Bogey Gallery" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: opacity 0.5s ease-in-out;">
-        
-        <!-- Navigation Buttons -->
-        <button onclick="changeSlide(-1)" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 15px; border-radius: 50%; cursor: pointer; font-size: 20px; transition: background 0.3s;">❮</button>
-        <button onclick="changeSlide(1)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 15px; border-radius: 50%; cursor: pointer; font-size: 20px; transition: background 0.3s;">❯</button>
-        
-        <!-- Thumbnail Navigation -->
-        <div id="thumbnails" style="display: flex; justify-content: center; gap: 10px; margin-top: 15px; overflow-x: auto; padding: 10px;">
-            <!-- Thumbnails will be added here by JavaScript -->
-        </div>
-    </div>
-</div>
 
 <script>
     // List of Bogey Image Paths
