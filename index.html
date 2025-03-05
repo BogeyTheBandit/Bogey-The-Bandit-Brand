@@ -228,64 +228,96 @@
 <div style="text-align: center; margin-top: 20px;">
     <h3>🎵 Listen to BOGEY</h3>
     <p>Check out some of the hottest tracks straight from the underground!</p>
-    <div>
-        <p><strong>🚨 Rug Pull</strong></p>
-    <audio controls>
-        <source src="Rug-Pull.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <p><strong>🔥 Off The Chain</strong></p>
-    <audio controls>
-        <source src="off-the-chain.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <p><strong>🔥 Late Night Drive</strong></p>
-    <audio controls>
-        <source src="late-night-drive.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <p><strong>💰 No Handouts</strong></p>
-    <audio controls>
-        <source src="no-handouts.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <p><strong>🛑 No Strings</strong></p>
-    <audio controls>
-        <source src="no-strings.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <p><strong>🚀 Built Different</strong></p>
-    <audio controls>
-        <source src="built-different.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
-
-        <p><strong>🔥 Apply Pressure</strong></p>
-        <audio controls>
-            <source src="apply-pressure.mp3" type="audio/mpeg">
+    
+    <div style="max-width: 500px; margin: 0 auto; padding: 20px; background: #1a1a1a; border-radius: 10px;">
+        <div id="current-song" style="margin-bottom: 15px; font-weight: bold; color: #FFD700;"></div>
+        
+        <audio id="audio-player" controls style="width: 100%; margin-bottom: 15px;">
+            <source src="Rug-Pull.mp3" type="audio/mpeg">
             Your browser does not support the audio tag.
         </audio>
-    </div>
-    <div>
-        <p><strong>🚀 Can’t Catch Me</strong></p>
-        <audio controls>
-            <source src="cant-catch-me.mp3" type="audio/mpeg">
-            Your browser does not support the audio tag.
-        </audio>
-    </div>
-    <div>
-        <p><strong>🏆 Out the Gutter</strong></p>
-        <audio controls>
-            <source src="out-the-gutter.mp3" type="audio/mpeg">
-            Your browser does not support the audio tag.
-        </audio>
+
+        <div style="display: flex; justify-content: center; gap: 10px;">
+            <button onclick="previousTrack()" style="padding: 8px 15px; background: #FFD700; border: none; border-radius: 5px; cursor: pointer;">⏮️ Previous</button>
+            <button onclick="togglePlay()" id="play-pause" style="padding: 8px 15px; background: #FFD700; border: none; border-radius: 5px; cursor: pointer;">⏯️ Play/Pause</button>
+            <button onclick="nextTrack()" style="padding: 8px 15px; background: #FFD700; border: none; border-radius: 5px; cursor: pointer;">⏭️ Next</button>
+        </div>
     </div>
 </div>
+
+<script>
+const tracks = [
+    { title: "🚨 Rug Pull", src: "Rug-Pull.mp3" },
+    { title: "🔥 Off The Chain", src: "off-the-chain.mp3" },
+    { title: "�� Late Night Drive", src: "late-night-drive.mp3" },
+    { title: "🤲 No Handouts", src: "no-handouts.mp3" },
+    { title: "🛑 No Strings", src: "no-strings.mp3" },
+    { title: "🚀 Built Different", src: "built-different.mp3" },
+    { title: "🔥 Apply Pressure", src: "apply-pressure.mp3" },
+    { title: "🚀 Can't Catch Me", src: "cant-catch-me.mp3" },
+    { title: "🏆 Out the Gutter", src: "out-the-gutter.mp3" },
+    { title: "👁️ Empty Eyes", src: "Empty Eyes.mp3" },
+    { title: "🔄 Outlaw Bounce", src: "Outlaw Bounce.mp3" },
+    { title: "🚗 Ride or Die", src: "Ride or Die.mp3" },
+    { title: "⚡ Iron Will", src: "Iron Will.mp3" },
+    { title: "🌙 Neon Nights", src: "Neon Nights (1).mp3" },
+    { title: "⏳ Used To Be", src: "Used To Be.mp3" },
+    { title: "🌙 Moonlight & Hennessy", src: "Moonlight & Hennessy.mp3" },
+    { title: "🤖 Glitch God", src: "Glitch God.mp3" },
+    { title: "🦝 Trash Panda", src: "Trash Panda.mp3" },
+    { title: "🏮 Big Bogey in Little Tokyo", src: "Big Bogey in Little Tokyo.mp3" },
+    { title: "🚗 Bogey in a Bentley", src: "Bogey in a Bentley.mp3" },
+    { title: "🌙 Late Night Temptation", src: "Late Night Temptation.mp3" },
+    { title: "⚰️ Buried Alive", src: "Buried Alive.mp3" },
+    { title: "�� Legendary", src: "Legendary.mp3" },
+    { title: "👑 The Takeover", src: "The Takeover.mp3" },
+    { title: "🦝 Going Rabid", src: "Going Rabid (V2).mp3" },
+    { title: "🦝 Going Rabid (Original)", src: "Going Rabid.mp3" },
+    { title: "⚡ Straight Savage", src: "Straight Savage.mp3" },
+    { title: "⚔️ No Mercy", src: "No Mercy.mp3" },
+    { title: "❄️ Too Cold", src: "Too Cold.mp3" },
+    { title: "🌙 All Night", src: "All Night_.mp3" },
+    { title: "🌙 Midnight Calls", src: "Midnight Calls.mp3" }
+];
+
+let currentTrack = 0;
+const audioPlayer = document.getElementById('audio-player');
+const playPauseButton = document.getElementById('play-pause');
+const currentSongDisplay = document.getElementById('current-song');
+
+function updatePlayer() {
+    audioPlayer.src = tracks[currentTrack].src;
+    currentSongDisplay.textContent = tracks[currentTrack].title;
+    audioPlayer.play();
+    playPauseButton.textContent = '⏸️ Pause';
+}
+
+function nextTrack() {
+    currentTrack = (currentTrack + 1) % tracks.length;
+    updatePlayer();
+}
+
+function previousTrack() {
+    currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+    updatePlayer();
+}
+
+function togglePlay() {
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+        playPauseButton.textContent = '⏸️ Pause';
+    } else {
+        audioPlayer.pause();
+        playPauseButton.textContent = '⏯️ Play';
+    }
+}
+
+// Initialize player
+updatePlayer();
+
+// Auto-play next track when current track ends
+audioPlayer.addEventListener('ended', nextTrack);
+</script>
 
 <!-- Bogey Image Gallery Section -->
 <section id="bogey-gallery" style="text-align: center; margin: 50px auto; padding: 20px; background-color: #1a1a1a; border-radius: 10px;">
